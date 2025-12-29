@@ -119,18 +119,17 @@
                     <div class="slide-content">
                         <h3>Solution 5(a)</h3>
                         <div class="step">
-                            <p><strong>1. Estimate Quoteint:</strong> Divide \( 5286 \) by \( 19 \):</p>
-                            <p>$$ \frac{5286}{19} \approx 278.21 $$</p>
-                            <p>So, we let \( q = 278 \).</p>
+                            <p><strong>1. Calculate Quotient:</strong></p>
+                            <p>\( q = \lfloor \frac{a}{b} \rfloor = \lfloor \frac{5286}{19} \rfloor = 278 \)</p>
                         </div>
                         <div class="step">
                             <p><strong>2. Calculate Remainder:</strong></p>
-                            <p>$$ r = a - (b \cdot q) $$</p>
-                            <p>$$ r = 5286 - (19 \cdot 278) = 5286 - 5282 = 4 $$</p>
+                            <p>\( r = a - bq = 5286 - 278(19) = 4 \)</p>
                         </div>
                         <div class="step">
-                            <p><strong>Final Equation:</strong></p>
-                            <div class="math-block">$$ 5286 = 19(278) + 4 $$</div>
+                            <div class="highlight-box" style="border-color: var(--success);">
+                                <div class="math-block" style="margin:0;">$$ 5286 = 19 \cdot 278 + 4 $$</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -162,19 +161,21 @@
                 </div>
                 <div class="slide solution-slide">
                     <div class="slide-content">
-                        <h3>Solution 5(b)</h3>
                         <div class="step">
-                            <p><strong>Method:</strong> When \( a \) is negative, normal division gives a negative
-                                remainder. We must decrease \( q \) by 1 to make \( r \) positive.</p>
+                            <p><strong>1. Setup Negative:</strong> Take \( -a = 5286 \).</p>
+                            <p>\( -a = bq + r \implies a = b(-q) - r \)</p>
                         </div>
                         <div class="step">
-                            <p>$$ 19 \cdot (-278) - 4 $$</p>
-                            <p>Adjust by subtracting 1 from quotient and adding divisor to remainder:</p>
-                            <p>$$ 19 \cdot (-278 - 1) + (19 - 4) $$</p>
-                            <p>$$ q = -279, \quad r = 15 $$</p>
+                            <p><strong>2. Adjust for Positive Remainder:</strong></p>
+                            <p>\( a = b(-q-1) + (b-r) \quad (\text{if } r > 0) \)</p>
+                            <p>From (a): \( -5286 = 19(-278) - 4 \)</p>
+                            <p>\( = 19(-278 - 1) + (19 - 4) \)</p>
+                            <p>\( = 19(-279) + 15 \)</p>
                         </div>
                         <div class="step">
-                            <div class="math-block">$$ -5286 = 19(-279) + 15 $$</div>
+                            <div class="highlight-box" style="border-color: var(--success);">
+                                <div class="math-block" style="margin:0;">$$ -5286 = 19(-279) + 15 $$</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -205,20 +206,20 @@
                 </div>
                 <div class="slide solution-slide">
                     <div class="slide-content">
-                        <h3>Solution 5(c)</h3>
                         <div class="step">
-                            <p><strong>Method:</strong> Adjust the sign of \( q \) to account for the negative divisor.
-                            </p>
+                            <p><strong>1. Setup:</strong> Take \( -b = 19 \).</p>
+                            <p>\( a = (-b)q + r = b(-q) + r \)</p>
                         </div>
                         <div class="step">
-                            <p>$$ 5286 = (-19) \cdot q + r $$</p>
-                            <p>Since \( 5286 = 19(278) + 4 \), we can write:</p>
-                            <p>$$ 5286 = (-19)(-278) + 4 $$</p>
+                            <p><strong>2. Substitute:</strong></p>
+                            <p>Since \( 5286 = 19(278) + 4 \):</p>
+                            <p>\( 5286 = (-19)(-278) + 4 \)</p>
                         </div>
                         <div class="step">
-                            <p><strong>Result:</strong> \( q = -278, \ r = 4 \).</p>
-                            <p>Check: \( 0 \le 4 < |-19| \) (Valid)</p>
-                                    <div class="math-block">$$ 5286 = -19(-278) + 4 $$</div>
+                            <div class="highlight-box" style="border-color: var(--success);">
+                                <div class="math-block" style="margin:0;">$$ 5286 = (-19)(-278) + 4 $$</div>
+                                <p style="margin-top: 0.5rem; font-size:0.9em;">Check: \( 0 \le 4 < |-19| \) (Valid)</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -251,18 +252,22 @@
                     <div class="slide-content">
                         <h3>Solution 5(d)</h3>
                         <div class="step">
-                            <p><strong>Method:</strong> Convert negative division into positive remainder.</p>
+                            <p><strong>Goal:</strong> Find \( q, r \) for \( a = -5286, b = -19 \).</p>
+                            <p>We know \( 5286 = 19 \cdot 278 + 4 \). Negate both sides:</p>
                         </div>
                         <div class="step">
-                            <p>Initially: \( -5286 = (-19)(278) - 4 \)</p>
-                            <p>We need positive remainder. Add one more group of \( -19 \) (which is subtracting) to
-                                quotient? No, we need to add/sub wisely.</p>
-                            <p>Actually: \( (-19) \cdot 278 = -5282 \). We need -4 to get -5286. Remainder -4 is
-                                invalid.</p>
-                            <p>Increase q to 279: \( (-19)(279) = -5301 \). Then \( -5286 - (-5301) = 15 \).</p>
+                            <p><strong>Algebraic Adjustment:</strong></p>
+                            <p>\( -5286 = -(19 \cdot 278 + 4) = 19(-278) - 4 \)</p>
+                            <p>To get a positive remainder, subtract and add 19:</p>
+                            <p>\( = 19(-278 - 1) + (19 - 4) \)</p>
+                            <p>\( = 19(-279) + 15 \)</p>
+                            <p>\( = (-19)(279) + 15 \)</p>
                         </div>
                         <div class="step">
-                            <div class="math-block">$$ -5286 = -19(279) + 15 $$</div>
+                            <div class="highlight-box" style="border-color: var(--success);">
+                                <div class="math-block" style="margin:0;">$$ -5286 = (-19)(279) + 15 $$</div>
+                                <p style="margin-top: 0.5rem;">So \( q = 279, r = 15 \).</p>
+                            </div>
                         </div>
                     </div>
                 </div>

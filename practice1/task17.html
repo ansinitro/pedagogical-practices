@@ -105,9 +105,16 @@
                     </div>
                     <div class="step">
                         <p><strong>2. Back Substitution (Found 1):</strong></p>
-                        <p>Working backwards yields:</p>
-                        <div class="math-block">$$ 1 = 17369(-2647) + 5472(8402) $$</div>
-                        <p>Multiply entire equation by 4 to match \( c=4 \):</p>
+                        <p>\( 1 = 29 - 2(14) \)</p>
+                        <p>\( = 29 - (31 - 29)(14) = 29(15) - 31(14) \)</p>
+                        <p>\( = (215 - 31(6))(15) - 31(14) = 215(15) - 31(104) \)</p>
+                        <p>\( = 215(15) - (246 - 215)(104) = 215(119) - 246(104) \)</p>
+                        <p>\( = (707 - 246(2))(119) - 246(104) = 707(119) - 246(342) \)</p>
+                        <p>\( = 707(119) - (953 - 707)(342) = 707(461) - 953(342) \)</p>
+                        <p>\( = (5472 - 953(5))(461) - 953(342) = 5472(461) - 953(2647) \)</p>
+                        <p>\( = 5472(461) - (17369 - 5472(3))(2647) = 5472(8402) - 17369(2647) \)</p>
+
+                        <p>Multiply by 4 for \( c=4 \):</p>
                         <div class="math-block">$$ 4 = 17369(-10588) + 5472(33608) $$</div>
                         <p>So \( x_0 = -10588, \quad y_0 = 33608 \).</p>
                     </div>
@@ -115,12 +122,15 @@
                         <p><strong>3. General Solution:</strong></p>
                         <p>\( x = -10588 + 5472t \)</p>
                         <p>\( y = 33608 - 17369t \)</p>
-                        <p>We want smaller base solutions. Let \( t' = t - 2 \). Then:</p>
-                        <p>\( x = -10588 + 5472(2) + 5472t' = 356 + 5472t' \)</p>
-                        <p class="highlight" style="font-size: 0.9em; margin-bottom: 0.5rem; opacity: 0.8;">(Note: \(
-                            -10588 \equiv 356 \pmod{5472} \))</p>
-                        <div class="math-block">$$ x = 356 + 5472k $$</div>
-                        <div class="math-block">$$ y = -1130 - 17369t $$</div>
+                        <p style="color: var(--highlight); margin-bottom: 0.5rem;"><strong>Simplify by substitution \( t
+                                := t + 2 \):</strong></p>
+                        <p>\( x = -10588 + 5472(t + 2) = -10588 + 10944 + 5472t = 356 + 5472t \)</p>
+                        <p>\( y = 33608 - 17369(t + 2) = 33608 - 34738 - 17369t = -1130 - 17369t \)</p>
+                        <div class="highlight-box" style="margin-top: 1rem; border-color: var(--success);">
+                            <div class="math-block" style="margin:0;">$$ x = 356 + 5472t $$</div>
+                            <div class="math-block" style="margin:0;">$$ y = -1130 - 17369t, \quad \text{any } t \in
+                                \mathbb{Z} $$</div>
+                        </div>
                     </div>
                 </div>
                 <button class="nav-arrow arrow-left" onclick="navigateGrid(2, 0)" title="Back to Task">
@@ -152,22 +162,31 @@
                 <div class="slide-content">
                     <h3>Solution (b)</h3>
                     <div class="step">
-                        <p><strong>1. GCD:</strong></p>
-                        <p>\( 260 = 154(1) + 106 \implies \dots \implies 10 = 8(1) + 2 \)</p>
-                        <p>\( \gcd = 2 \). Since \( 2 \mid 4 \), sol exists.</p>
+                        <p><strong>1. Euclidean Algorithm:</strong></p>
+                        <p>\( 260 = 154(1) + 106 \)</p>
+                        <p>\( 154 = 106(1) + 48 \)</p>
+                        <p>\( 106 = 48(2) + 10 \)</p>
+                        <p>\( 48 = 10(4) + 8 \)</p>
+                        <p>\( 10 = 8(1) + 2 \)</p>
+                        <p>\( 8 = 2(4) + 0 \)</p>
+                        <p class="highlight" style="color: var(--success); margin-top: 0.5rem;">\( \gcd(154, 260) = 2
+                            \). Since \( 2 \mid 4 \), solution exists.</p>
                     </div>
                     <div class="step">
-                        <p><strong>2. Particular Sol:</strong></p>
-                        <p>Working backwards from \( 2 = 10 - 8(1) \dots \)</p>
-                        <p>\( 2 = 16(260) - 27(154) \)</p>
-                        <p>Multiply by 2 for \( c=4 \): </p>
-                        <p>\( 4 = 32(260) - 54(154) \)</p>
-                        <p>\( x_0 = -54, y_0 = 32 \)</p>
+                        <p><strong>2. Back Substitution (Linear Combination):</strong></p>
+                        <p>\( 2 = 10 - 8 \)</p>
+                        <p>\( = 10 - (48 - 10 \cdot 4) = 5 \cdot 10 - 48 \)</p>
+                        <p>\( = 5(106 - 48 \cdot 2) - 48 = 5 \cdot 106 - 11 \cdot 48 \)</p>
+                        <p>\( = 5 \cdot 106 - 11(154 - 106) = 16 \cdot 106 - 11 \cdot 154 \)</p>
+                        <p>\( = 16(260 - 154) - 11 \cdot 154 = 16 \cdot 260 - 27 \cdot 154 \)</p>
+                        <p class="highlight" style="color: var(--highlight);">\( 2 = 16(260) - 27(154) \)</p>
                     </div>
                     <div class="step">
-                        <p><strong>3. General Sol:</strong></p>
+                        <p><strong>3. General Solution:</strong></p>
+                        <p>Multiply by 2 for \( c=4 \): \( 4 = 32(260) - 54(154) \).</p>
+                        <p>So \( x_0 = -54, y_0 = 32 \).</p>
                         <div class="math-block">$$ x = -54 + 130t $$</div>
-                        <div class="math-block">$$ y = 32 - 77t $$</div>
+                        <div class="math-block">$$ y = 32 - 77t, \quad t \in \mathbb{Z} $$</div>
                     </div>
                 </div>
                 <button class="nav-arrow arrow-left" onclick="navigateGrid(3, 0)" title="Back to Task">

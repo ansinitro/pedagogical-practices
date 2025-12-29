@@ -56,11 +56,11 @@
                     <h3>Task 3</h3>
                     <p>Find \( a \pmod n \) for:</p>
                     <ul>
-                        <li>(a) \( 1286 \pmod{39} \)</li>
-                        <li>(b) \( 43197 \pmod{333} \)</li>
-                        <li>(c) \( -545608 \pmod{51} \)</li>
-                        <li>(d) \( -125617 \pmod{315} \)</li>
-                        <li>(e) \( 111,111,111,111 \pmod{1111} \)</li>
+                        <li>(a) \( a = 1286, n = 39 \)</li>
+                        <li>(b) \( a = 43197, n = 333 \)</li>
+                        <li>(c) \( a = -545608, n = 51 \)</li>
+                        <li>(d) \( a = -125617, n = 315 \)</li>
+                        <li>(e) \( a = 111,111,111,111, n = 1111 \)</li>
                     </ul>
                 </div>
                 <button class="nav-arrow arrow-right" onclick="navigateGrid(1, 1)" title="Solution"><svg
@@ -113,9 +113,9 @@
                     </div>
                     <p><strong>Find:</strong></p>
                     <ul style="margin-top: 0;">
-                        <li>\( (a+b) \pmod{85} \)</li>
-                        <li>\( ab \pmod{85} \)</li>
-                        <li>\( (a+b)^2 \pmod{85} \)</li>
+                        <li>\( (a+b) \pmod{n} \)</li>
+                        <li>\( ab \pmod{n} \)</li>
+                        <li>\( (a+b)^2 \pmod{n} \)</li>
                     </ul>
                 </div>
                 <button class="nav-arrow arrow-right" onclick="navigateGrid(2, 1)" title="Solution"><svg
@@ -267,19 +267,22 @@
                 <div class="slide-content">
                     <h3>Solution Task 22(b)</h3>
                     <div class="step">
-                        <p><strong>Check Conditions:</strong></p>
-                        <p>\( p = 20593 \) is prime.</p>
-                        <p>\( \gcd(53, 20593) = 1 \).</p>
+                        <p style="color: var(--highlight); margin-bottom: 0.5rem;"><strong>By Fermat's Little
+                                Theorem:</strong></p>
+                        <p>If \( \gcd(a, p) = 1 \) and \( p \) is prime, then:</p>
+                        <div class="math-block" style="margin: 0.5rem 0;">$$ a^{p-1} \equiv 1 \pmod p $$</div>
                     </div>
                     <div class="step">
-                        <p><strong>Apply Theorem:</strong></p>
-                        <p>Exponent is \( p-1 = 20592 \).</p>
+                        <p>Since \( 20593 \) is prime and \( \gcd(53, 20593)=1 \):</p>
                         <div class="math-block">$$ 53^{20592} \equiv 1 \pmod{20593} $$</div>
                     </div>
                     <div class="step">
-                        <p><strong>Extended Powers:</strong></p>
-                        <p>\( 53^{20593} \equiv 53 \cdot 1 \equiv 53 \)</p>
-                        <p>\( 53^{20594} \equiv 53^2 \equiv 2809 \)</p>
+                        <p><strong>Extensions:</strong></p>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>\( 53^{20593} = 53 \cdot 53^{20592} \equiv 53 \cdot 1 \equiv 53 \pmod{20593} \)</li>
+                            <li style="margin-top: 0.5rem;">\( 53^{20594} = 53^2 \cdot 53^{20592} \equiv 2809 \cdot 1
+                                \equiv 2809 \pmod{20593} \)</li>
+                        </ul>
                     </div>
                 </div>
                 <button class="nav-arrow arrow-left" onclick="navigateGrid(4, 0)" title="Back to Task"><svg

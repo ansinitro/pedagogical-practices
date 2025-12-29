@@ -148,19 +148,26 @@
                         <p>\( 978 = 785(1) + 193 \)</p>
                         <p>\( 785 = 193(4) + 13 \)</p>
                         <p>\( 193 = 13(14) + 11 \)</p>
-                        <p>\( 13 = 11(1) + 2 \implies 11 = 2(5) + 1 \)</p>
-                        <p class="highlight">GCD is 1.</p>
+                        <p>\( 13 = 11(1) + 2 \)</p>
+                        <p>\( 11 = 2(5) + 1 \)</p>
+                        <p>\( 2 = 1(2) + 0 \)</p>
+                        <p class="highlight" style="color: var(--success); margin-top: 0.5rem;">The non-zero last
+                            remainder is 1. So GCD is 1.</p>
                     </div>
                     <div class="step">
-                        <p><strong>2. Linear Combination:</strong></p>
-                        <p>Working backwards from \( 1 = 11 - 5(2) \):</p>
-                        <p>\( 1 = 11 - 5(13 - 11) = 6(11) - 5(13) \)</p>
-                        <p>\( \dots \)</p>
-                        <p>Eventually we reach:</p>
-                        <p>\( 1 = 3881(-3719 + 8416) - 2166(8416) \)</p>
+                        <p><strong>2. Linear Combination (Back Substitution):</strong></p>
+                        <p>\( 1 = 11 - 5 \cdot 2 \)</p>
+                        <p>\( = 11 - 5(13 - 11) = 6 \cdot 11 - 5 \cdot 13 \)</p>
+                        <p>\( = 6(193 - 14 \cdot 13) - 5 \cdot 13 = 6 \cdot 193 - 89 \cdot 13 \)</p>
+                        <p>\( = 6 \cdot 193 - 89(785 - 4 \cdot 193) = 362 \cdot 193 - 89 \cdot 785 \)</p>
+                        <p>\( = 362(978 - 785) - 89 \cdot 785 = 362 \cdot 978 - 451 \cdot 785 \)</p>
+                        <p>\( = 362 \cdot 978 - 451(3719 - 3 \cdot 978) = 1715 \cdot 978 - 451 \cdot 3719 \)</p>
+                        <p>\( = 1715(4697 - 3719) - 451 \cdot 3719 = 1715 \cdot 4697 - 2166 \cdot 3719 \)</p>
+                        <p>\( = 1715(8416 - 3719) - 2166 \cdot 3719 = 1715 \cdot 8416 - 3881 \cdot 3719 \)</p>
+                        <p>\( = 3881(-3719) + 1715(8416) \)</p>
+                        <p class="highlight" style="color: var(--highlight);">\( 1 = 3881(-3719) + 1715(8416) \)</p>
                     </div>
                     <div class="step">
-                        <div class="math-block">$$ 1 = -3719(3881) + 8416(1715) $$</div>
                         <p>So \( m = 3881, n = 1715 \).</p>
                     </div>
                 </div>
