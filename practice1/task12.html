@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discrete Math: GCD & Linear Combination</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <a href="index.html"
+        style="position: fixed; top: 20px; left: 20px; z-index: 1000; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 99px; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px); transition: all 0.2s;"
+        onmouseover="this.style.color='white'; this.style.borderColor='white'"
+        onmouseout="this.style.color='rgba(255,255,255,0.6)'; this.style.borderColor='rgba(255,255,255,0.1)'">← Back to
+        Menu</a>
+
+    <div class="progress-nav">
+        <div class="nav-dot active" data-label="Intro" onclick="scrollToRow(0)"></div>
+        <div class="nav-dot" data-label="Method" onclick="scrollToRow(1)"></div>
+        <div class="nav-dot" data-label="Task (e)" onclick="scrollToRow(2)"></div>
+        <div class="nav-dot" data-label="Task (g)" onclick="scrollToRow(3)"></div>
+        <div class="nav-dot" data-label="Summary" onclick="scrollToRow(4)"></div>
+    </div>
+
+    <div id="deck">
+
+        <!-- Slide 1: Title -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h1>Discrete Mathematics</h1>
+                    <h2>Section 2: Integers</h2>
+                    <div class="math-block">Task 12: GCD & Linear Combination</div>
+                    <p>Euclidean Algorithm & Extended Euclidean Algorithm</p>
+                </div>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(1)" title="Next Slide"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Slide 2: Definition -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>The Task</h2>
+                    <p>Find the Greatest Common Divisor (GCD) of \( a \) and \( b \), and express it in the form:</p>
+                    <div class="math-block">$$ \gcd(a, b) = ma + nb $$</div>
+                    <p>Where \( m \) and \( n \) are suitable integers (Bézout coefficients).</p>
+                </div>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(2)" title="Start Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Task (e) -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 12(e)</h3>
+                    <p>Find GCD and \( m, n \) for:</p>
+                    <div class="math-block">
+                        $$ a = 1575 $$
+                        $$ b = -231 $$
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(2, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(3)" title="Next Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution (e)</h3>
+                    <div class="step">
+                        <p><strong>1. Euclidean Algorithm:</strong></p>
+                        <p>\( 1575 = (-231)(-6) + 189 \)</p>
+                        <p>\( -231 = 189(-2) + 147 \)</p>
+                        <p>\( 189 = 147(1) + 42 \)</p>
+                        <p>\( 147 = 42(3) + 21 \)</p>
+                        <p>\( 42 = 21(2) + 0 \)</p>
+                        <p class="highlight">GCD is 21.</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>2. Linear Combination (Backwards):</strong></p>
+                        <p>\( 21 = 147 - 42(3) \)</p>
+                        <p>\( 21 = 147 - (189 - 147)(3) = 147(4) - 189(3) \)</p>
+                        <p>\( 21 = [-231 - 189(-2)](4) - 189(3) = -231(4) + 189(5) \)</p>
+                        <p>\( 21 = -231(4) + [1575 - (-231)(-6)](5) \)</p>
+                    </div>
+                    <div class="step">
+                        <div class="math-block">$$ 21 = 1575(5) + (-231)(34) $$</div>
+                        <p>So \( m = 5, n = 34 \).</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(2, 0)" title="Back to Task">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Task (g) -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 12(g)</h3>
+                    <p>Find GCD and \( m, n \) for:</p>
+                    <div class="math-block">
+                        $$ a = -3719 $$
+                        $$ b = 8416 $$
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(3, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(4)" title="Summary"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution (g)</h3>
+                    <div class="step">
+                        <p><strong>1. Euclidean Algorithm:</strong></p>
+                        <p>\( -3719 = 8416(-1) + 4697 \)</p>
+                        <p>\( 8416 = 4697(1) + 3719 \)</p>
+                        <p>\( 4697 = 3719(1) + 978 \)</p>
+                        <p>\( 3719 = 978(3) + 785 \)</p>
+                        <p>\( 978 = 785(1) + 193 \)</p>
+                        <p>\( 785 = 193(4) + 13 \)</p>
+                        <p>\( 193 = 13(14) + 11 \)</p>
+                        <p>\( 13 = 11(1) + 2 \implies 11 = 2(5) + 1 \)</p>
+                        <p class="highlight">GCD is 1.</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>2. Linear Combination:</strong></p>
+                        <p>Working backwards from \( 1 = 11 - 5(2) \):</p>
+                        <p>\( 1 = 11 - 5(13 - 11) = 6(11) - 5(13) \)</p>
+                        <p>\( \dots \)</p>
+                        <p>Eventually we reach:</p>
+                        <p>\( 1 = 3881(-3719 + 8416) - 2166(8416) \)</p>
+                    </div>
+                    <div class="step">
+                        <div class="math-block">$$ 1 = -3719(3881) + 8416(1715) $$</div>
+                        <p>So \( m = 3881, n = 1715 \).</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(3, 0)" title="Back to Task">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>Summary: Task 12</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Part</th>
+                                <th>GCD</th>
+                                <th>m (coeff of a)</th>
+                                <th>n (coeff of b)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>(e)</td>
+                                <td><input type="number" class="quiz-input" id="gcd-e" placeholder="?"></td>
+                                <td><input type="number" class="quiz-input" id="m-e" placeholder="?"></td>
+                                <td>
+                                    <input type="number" class="quiz-input" id="n-e" placeholder="?">
+                                    <button class="review-btn" onclick="scrollToRow(2)">Review</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>(g)</td>
+                                <td><input type="number" class="quiz-input" id="gcd-g" placeholder="?"></td>
+                                <td><input type="number" class="quiz-input" id="m-g" placeholder="?"></td>
+                                <td>
+                                    <input type="number" class="quiz-input" id="n-g" placeholder="?">
+                                    <button class="review-btn" onclick="scrollToRow(3)">Review</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="check-btn secondary" onclick="showAnswers()">Show Answers</button>
+                        <button class="check-btn" onclick="checkAnswers()">Check Answers</button>
+                        <div id="check-message" style="margin-top: 1rem; color: #cbd5e1;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.quizData = {
+            'e': { answers: { gcd: 21, m: 5, n: 34 } },
+            'g': { answers: { gcd: 1, m: 3881, n: 1715 } }
+        };
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discrete Math: Integers Presentation</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Back Button -->
+    <a href="index.html" style="
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1000;
+        color: rgba(255,255,255,0.6);
+        text-decoration: none;
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+        border: 1px solid rgba(255,255,255,0.1);
+        border-radius: 99px;
+        background: rgba(0,0,0,0.3);
+        backdrop-filter: blur(4px);
+        transition: all 0.2s;
+    " onmouseover="this.style.color='white'; this.style.borderColor='white'"
+        onmouseout="this.style.color='rgba(255,255,255,0.6)'; this.style.borderColor='rgba(255,255,255,0.1)'">
+        ← Back to Menu
+    </a>
+
+    <!-- Sidebar Navigation -->
+    <div class="progress-nav">
+        <div class="nav-dot active" data-label="Intro" onclick="scrollToRow(0)"></div>
+        <div class="nav-dot" data-label="Definition" onclick="scrollToRow(1)"></div>
+        <div class="nav-dot" data-label="Task 5(a)" onclick="scrollToRow(2)"></div>
+        <div class="nav-dot" data-label="Task 5(b)" onclick="scrollToRow(3)"></div>
+        <div class="nav-dot" data-label="Task 5(c)" onclick="scrollToRow(4)"></div>
+        <div class="nav-dot" data-label="Task 5(d)" onclick="scrollToRow(5)"></div>
+        <div class="nav-dot" data-label="Summary" onclick="scrollToRow(6)"></div>
+    </div>
+
+    <div id="deck">
+
+        <!-- Slide 1: Title -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h1>Discrete Mathematics</h1>
+                    <h2>Section 1: Integers</h2>
+                    <div class="math-block">
+                        Task 5: The Division Algorithm
+                    </div>
+                    <p>Scroll down to begin Task 5(a).</p>
+                </div>
+                <!-- Controls (Outside content, inside slide) -->
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(1)" title="Next Slide">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Slide 2: Definition -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>The Division Algorithm</h2>
+                    <p>For any integer \( a \) (dividend) and positive integer \( b \) (divisor), there exist unique
+                        integers \( q \) (quotient) and \( r \) (remainder) such that:</p>
+                    <div class="math-block">
+                        $$ a = bq + r $$
+                        $$ 0 \le r < |b| $$ </div>
+                            <p>Our goal is to find \( q \) and \( r \) for given values of \( a \) and \( b \).</p>
+                    </div>
+                    <button class="nav-arrow arrow-down" onclick="scrollToRow(2)" title="Start Tasks">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Task (a) -->
+            <div class="row">
+                <!-- Problem -->
+                <div class="slide">
+                    <div class="slide-content">
+                        <h3>Task 5(a)</h3>
+                        <p>Find the quotient \( q \) and remainder \( r \) for:</p>
+                        <div class="math-block">
+                            $$ a = 5286 $$
+                            $$ b = 19 $$
+                        </div>
+                    </div>
+                    <button class="nav-arrow arrow-right" onclick="navigateGrid(2, 1)" title="See Solution">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                        </svg>
+                    </button>
+                    <button class="nav-arrow arrow-down" onclick="scrollToRow(3)" title="Next Task">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                        </svg>
+                    </button>
+                </div>
+                <!-- Solution -->
+                <div class="slide solution-slide">
+                    <div class="slide-content">
+                        <h3>Solution 5(a)</h3>
+                        <div class="step">
+                            <p><strong>1. Estimate Quoteint:</strong> Divide \( 5286 \) by \( 19 \):</p>
+                            <p>$$ \frac{5286}{19} \approx 278.21 $$</p>
+                            <p>So, we let \( q = 278 \).</p>
+                        </div>
+                        <div class="step">
+                            <p><strong>2. Calculate Remainder:</strong></p>
+                            <p>$$ r = a - (b \cdot q) $$</p>
+                            <p>$$ r = 5286 - (19 \cdot 278) = 5286 - 5282 = 4 $$</p>
+                        </div>
+                        <div class="step">
+                            <p><strong>Final Equation:</strong></p>
+                            <div class="math-block">$$ 5286 = 19(278) + 4 $$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task (b) -->
+            <div class="row">
+                <div class="slide">
+                    <div class="slide-content">
+                        <h3>Task 5(b)</h3>
+                        <p>Find \( q \) and \( r \) for:</p>
+                        <div class="math-block">
+                            $$ a = -5286 $$
+                            $$ b = 19 $$
+                        </div>
+                        <p class="highlight" style="font-size: 0.9em; color: var(--highlight);">Hint: For negative \( a
+                            \), quotient \( q = \lfloor a/b \rfloor \). Round <em>down</em> (more negative).</p>
+                    </div>
+                    <button class="nav-arrow arrow-right" onclick="navigateGrid(3, 1)" title="See Solution">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                        </svg>
+                    </button>
+                    <button class="nav-arrow arrow-down" onclick="scrollToRow(4)" title="Next Task">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="slide solution-slide">
+                    <div class="slide-content">
+                        <h3>Solution 5(b)</h3>
+                        <div class="step">
+                            <p><strong>Method:</strong> When \( a \) is negative, normal division gives a negative
+                                remainder. We must decrease \( q \) by 1 to make \( r \) positive.</p>
+                        </div>
+                        <div class="step">
+                            <p>$$ 19 \cdot (-278) - 4 $$</p>
+                            <p>Adjust by subtracting 1 from quotient and adding divisor to remainder:</p>
+                            <p>$$ 19 \cdot (-278 - 1) + (19 - 4) $$</p>
+                            <p>$$ q = -279, \quad r = 15 $$</p>
+                        </div>
+                        <div class="step">
+                            <div class="math-block">$$ -5286 = 19(-279) + 15 $$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task (c) -->
+            <div class="row">
+                <div class="slide">
+                    <div class="slide-content">
+                        <h3>Task 5(c)</h3>
+                        <p>Find \( q \) and \( r \) for:</p>
+                        <div class="math-block">
+                            $$ a = 5286 $$
+                            $$ b = -19 $$
+                        </div>
+                        <p><em>Note: \( b \) is negative.</em></p>
+                    </div>
+                    <button class="nav-arrow arrow-right" onclick="navigateGrid(4, 1)" title="See Solution">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                        </svg>
+                    </button>
+                    <button class="nav-arrow arrow-down" onclick="scrollToRow(5)" title="Next Task">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="slide solution-slide">
+                    <div class="slide-content">
+                        <h3>Solution 5(c)</h3>
+                        <div class="step">
+                            <p><strong>Method:</strong> Adjust the sign of \( q \) to account for the negative divisor.
+                            </p>
+                        </div>
+                        <div class="step">
+                            <p>$$ 5286 = (-19) \cdot q + r $$</p>
+                            <p>Since \( 5286 = 19(278) + 4 \), we can write:</p>
+                            <p>$$ 5286 = (-19)(-278) + 4 $$</p>
+                        </div>
+                        <div class="step">
+                            <p><strong>Result:</strong> \( q = -278, \ r = 4 \).</p>
+                            <p>Check: \( 0 \le 4 < |-19| \) (Valid)</p>
+                                    <div class="math-block">$$ 5286 = -19(-278) + 4 $$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Task (d) -->
+            <div class="row">
+                <div class="slide">
+                    <div class="slide-content">
+                        <h3>Task 5(d)</h3>
+                        <p>Find \( q \) and \( r \) for:</p>
+                        <div class="math-block">
+                            $$ a = -5286 $$
+                            $$ b = -19 $$
+                        </div>
+                        <p><em>Note: Both \( a \) and \( b \) are negative.</em></p>
+                    </div>
+                    <button class="nav-arrow arrow-right" onclick="navigateGrid(5, 1)" title="See Solution">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                        </svg>
+                    </button>
+                    <button class="nav-arrow arrow-down" onclick="scrollToRow(6)" title="Go to Summary">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                        </svg>
+                    </button>
+                </div>
+                <div class="slide solution-slide">
+                    <div class="slide-content">
+                        <h3>Solution 5(d)</h3>
+                        <div class="step">
+                            <p><strong>Method:</strong> Convert negative division into positive remainder.</p>
+                        </div>
+                        <div class="step">
+                            <p>Initially: \( -5286 = (-19)(278) - 4 \)</p>
+                            <p>We need positive remainder. Add one more group of \( -19 \) (which is subtracting) to
+                                quotient? No, we need to add/sub wisely.</p>
+                            <p>Actually: \( (-19) \cdot 278 = -5282 \). We need -4 to get -5286. Remainder -4 is
+                                invalid.</p>
+                            <p>Increase q to 279: \( (-19)(279) = -5301 \). Then \( -5286 - (-5301) = 15 \).</p>
+                        </div>
+                        <div class="step">
+                            <div class="math-block">$$ -5286 = -19(279) + 15 $$</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Summary Slide -->
+            <div class="row">
+                <div class="slide">
+                    <div class="slide-content">
+                        <h2>Summary Table: Task 5</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Part</th>
+                                    <th>a</th>
+                                    <th>b</th>
+                                    <th>q</th>
+                                    <th>r</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Task A -->
+                                <tr>
+                                    <td>(a)</td>
+                                    <td>5286</td>
+                                    <td>19</td>
+                                    <td><input type="number" class="quiz-input" id="q-a" placeholder="?"></td>
+                                    <td>
+                                        <input type="number" class="quiz-input" id="r-a" placeholder="?">
+                                        <button class="review-btn" onclick="scrollToRow(2)">Review (a)</button>
+                                    </td>
+                                </tr>
+                                <!-- Task B -->
+                                <tr>
+                                    <td>(b)</td>
+                                    <td>-5286</td>
+                                    <td>19</td>
+                                    <td><input type="number" class="quiz-input" id="q-b" placeholder="?"></td>
+                                    <td>
+                                        <input type="number" class="quiz-input" id="r-b" placeholder="?">
+                                        <button class="review-btn" onclick="scrollToRow(3)">Review (b)</button>
+                                    </td>
+                                </tr>
+                                <!-- Task C -->
+                                <tr>
+                                    <td>(c)</td>
+                                    <td>5286</td>
+                                    <td>-19</td>
+                                    <td><input type="number" class="quiz-input" id="q-c" placeholder="?"></td>
+                                    <td>
+                                        <input type="number" class="quiz-input" id="r-c" placeholder="?">
+                                        <button class="review-btn" onclick="scrollToRow(4)">Review (c)</button>
+                                    </td>
+                                </tr>
+                                <!-- Task D -->
+                                <tr>
+                                    <td>(d)</td>
+                                    <td>-5286</td>
+                                    <td>-19</td>
+                                    <td><input type="number" class="quiz-input" id="q-d" placeholder="?"></td>
+                                    <td>
+                                        <input type="number" class="quiz-input" id="r-d" placeholder="?">
+                                        <button class="review-btn" onclick="scrollToRow(5)">Review (d)</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style="text-align: center;">
+                            <button class="check-btn secondary" onclick="showAnswers()">Show Answers</button>
+                            <button class="check-btn" onclick="checkAnswers()">Check Answers</button>
+                            <div id="check-message" style="margin-top: 1rem; height: 1.5rem; color: #cbd5e1;"></div>
+                        </div>
+                    </div>
+                    <button class="nav-arrow arrow-left" onclick="navigateGrid(2, 0)" title="Back to Task">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M15 19l-7-7 7-7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            window.quizData = {
+                'a': { answers: { q: 278, r: 4 } },
+                'b': { answers: { q: -279, r: 15 } },
+                'c': { answers: { q: -278, r: 4 } },
+                'd': { answers: { q: 279, r: 15 } }
+            };
+        </script>
+        <script src="script.js"></script>
+
+</body>
+
+</html>
