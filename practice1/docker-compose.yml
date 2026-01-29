@@ -1,0 +1,7 @@
+version: '3'
+services:
+  ped-practice:
+    build: .
+    ports:
+      - "3003:80"
+    restart: always

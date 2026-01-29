@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discrete Math: Practice Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Landing Page Specific Overrides */
+        body {
+            overflow-y: auto;
+            /* Allow normal scrolling on menu */
+            padding: 2rem;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 4rem;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        .section-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding-bottom: 4rem;
+        }
+
+        .task-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: block;
+            backdrop-filter: blur(12px);
+        }
+
+        .task-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+            border-color: var(--accent-color);
+        }
+
+        .task-meta {
+            color: var(--highlight);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .task-title {
+            color: var(--text-color);
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .task-desc {
+            color: #94a3b8;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .status-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 99px;
+            font-size: 0.8rem;
+            margin-top: 1.5rem;
+            background: rgba(74, 222, 128, 0.1);
+            color: var(--success);
+            border: 1px solid rgba(74, 222, 128, 0.2);
+        }
+
+        .status-locked {
+            background: rgba(255, 255, 255, 0.05);
+            color: #64748b;
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Discrete Mathematics</h1>
+            <h2>Practice Portal: Integers (Week 4)</h2>
+            <p>Select a task to begin your practice session.</p>
+            <a href="../index.html" class="back-link" style="
+                display: inline-block;
+                margin-top: 1rem;
+                color: var(--accent-color);
+                text-decoration: none;
+                border-bottom: 1px dashed var(--accent-color);
+            ">← Back to Week Selection</a>
+        </div>
+
+        <!-- Section 1 -->
+        <h3 style="margin-bottom: 2rem; border-color: var(--accent-color);">Section 1: The Division Algorithm</h3>
+        <div class="section-grid">
+
+            <!-- Task 5 Card -->
+            <a href="task5.html" class="task-card">
+                <div class="task-meta">Task 5</div>
+                <div class="task-title">Quotient & Remainder</div>
+                <div class="task-desc">
+                    Find q and r for various integer pairs (positive and negative) using the Division Algorithm equation
+                    a = bq + r.
+                </div>
+                <div class="status-badge">Available</div>
+            </a>
+
+        </div>
+
+        <!-- Section 2 -->
+        <h3 style="margin-bottom: 2rem; border-color: var(--highlight);">Section 2: GCD & Linear Combinations</h3>
+        <div class="section-grid">
+            <!-- Task 12 Card -->
+            <a href="task12.html" class="task-card">
+                <div class="task-meta" style="color: var(--highlight);">Task 12</div>
+                <div class="task-title">Euclidean Algorithm</div>
+                <div class="task-desc">
+                    Find GCD(a,b) and express it as ma + nb. Steps for parts (e) and (g).
+                </div>
+                <div class="status-badge">New</div>
+            </a>
+
+            <!-- Task 17 Card -->
+            <a href="task17.html" class="task-card">
+                <div class="task-meta" style="color: var(--highlight);">Task 17</div>
+                <div class="task-title">Linear Diophantine Eq</div>
+                <div class="task-desc">
+                    Solve ax + by = c. Conditions for existence and finding general integer solutions.
+                </div>
+                <div class="status-badge">New</div>
+            </a>
+        </div>
+
+        <!-- Section 3 -->
+        <h3 style="margin-bottom: 2rem; border-color: var(--success);">Section 3: Primes & Divisors</h3>
+        <div class="section-grid">
+            <!-- Task Primes Card -->
+            <a href="task_primes.html" class="task-card">
+                <div class="task-meta" style="color: var(--success);">Task 1 & 17</div>
+                <div class="task-title">Primes & d(n)</div>
+                <div class="task-desc">
+                    Primality tests for various integers and analysis of divisor counts d(n)=2,3.
+                </div>
+                <div class="status-badge">New</div>
+            </a>
+        </div>
+
+        <!-- Section 4 -->
+        <h3 style="margin-bottom: 2rem; border-color: var(--highlight);">Section 4: Modular Arithmetic</h3>
+        <div class="section-grid">
+            <!-- Task Modular Card -->
+            <a href="task_modular.html" class="task-card">
+                <div class="task-meta" style="color: var(--highlight);">Tasks 3, 7, 9, 22</div>
+                <div class="task-title">Modular Arithmetic</div>
+                <div class="task-desc">
+                    Basic modulo, linear congruences, modular operations, and Fermat's Little Theorem.
+                </div>
+                <div class="status-badge">New</div>
+            </a>
+        </div>
+
+        <!-- Section 5 -->
+        <h3 style="margin-bottom: 2rem; border-color: var(--success);">Section 5: Chinese Remainder Theorem</h3>
+        <div class="section-grid">
+            <!-- Task CRT Card -->
+            <a href="task_crt.html" class="task-card">
+                <div class="task-meta" style="color: var(--success);">Problem 18</div>
+                <div class="task-title">CRT</div>
+                <div class="task-desc">
+                    Solving systems of linear congruences using the Chinese Remainder Theorem.
+                </div>
+                <div class="status-badge">New</div>
+            </a>
+        </div>
+
+        <!-- Resources -->
+        <h3 style="margin-bottom: 2rem; border-color: #fbbf24;">Teacher Resources</h3>
+        <div class="section-grid">
+            <!-- Guide Card -->
+            <a href="teachers_guide.html" class="task-card">
+                <div class="task-meta" style="color: #fbbf24;">Preparation</div>
+                <div class="task-title">Teacher's Guide</div>
+                <div class="task-desc">
+                    Theory deep-dives, Q&A scripts, and "Big Picture" connections for all tasks.
+                </div>
+                <div class="status-badge" style="background: rgba(251, 191, 36, 0.2); color: #fbbf24;">Essential</div>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

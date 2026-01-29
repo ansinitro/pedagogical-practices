@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discrete Math: Primes & Divisors</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <a href="index.html"
+        style="position: fixed; top: 20px; left: 20px; z-index: 1000; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 99px; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px); transition: all 0.2s;"
+        onmouseover="this.style.color='white'; this.style.borderColor='white'"
+        onmouseout="this.style.color='rgba(255,255,255,0.6)'; this.style.borderColor='rgba(255,255,255,0.1)'">← Back to
+        Menu</a>
+
+    <div class="progress-nav">
+        <div class="nav-dot active" data-label="Intro" onclick="scrollToRow(0)"></div>
+        <div class="nav-dot" data-label="1(a) 157" onclick="scrollToRow(1)"></div>
+        <div class="nav-dot" data-label="1(b) 9831" onclick="scrollToRow(2)"></div>
+        <div class="nav-dot" data-label="1(c) 9833" onclick="scrollToRow(3)"></div>
+        <div class="nav-dot" data-label="1(d) 55551111" onclick="scrollToRow(4)"></div>
+        <div class="nav-dot" data-label="1(e) Large" onclick="scrollToRow(5)"></div>
+        <div class="nav-dot" data-label="17: d(n)" onclick="scrollToRow(6)"></div>
+        <div class="nav-dot" data-label="Summary" onclick="scrollToRow(7)"></div>
+    </div>
+
+    <div id="deck">
+
+        <!-- Slide 1: Title -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h1>Discrete Mathematics</h1>
+                    <h2>Section 3: Primes & Divisors</h2>
+                    <div class="math-block">Primes, Composites & \( d(n) \)</div>
+                </div>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(1)" title="Next Slide"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Task 1(a) 157 -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 1(a)</h3>
+                    <p>Is \( 157 \) a prime number?</p>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(1, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(2)" title="Next"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution 1(a)</h3>
+                    <div class="step">
+                        <p><strong>Method:</strong> Square Root Test.</p>
+                        <p>\( \sqrt{157} \approx 12.53 \)</p>
+                        <p>Check primes \( p \) such that \( 1 < p < 12.53 \):</p>
+                                <p class="highlight">2, 3, 5, 7, 11</p>
+                    </div>
+                    <div class="step">
+                        <p>None of these divide 157.</p>
+                        <p class="highlight" style="color: var(--success);">Conclusion: 157 is Prime.</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(1, 0)" title="Back to Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Task 1(b) 9831 -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 1(b)</h3>
+                    <p>Is \( 9831 \) a prime number?</p>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(2, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(3)" title="Next"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution 1(b)</h3>
+                    <div class="step">
+                        <p><strong>Method:</strong> Sum of Digits (Divisibility by 3).</p>
+                        <p>\( 9 + 8 + 3 + 1 = 21 \)</p>
+                    </div>
+                    <div class="step">
+                        <p>Since \( 21 \) is divisible by 3, \( 9831 \) is divisible by 3.</p>
+                        <p>\( 9831 \equiv 21 \equiv 0 \pmod 3 \)</p>
+                        <p class="highlight" style="color: var(--highlight);">Conclusion: 9831 is Not Prime.</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(2, 0)" title="Back to Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Task 1(c) 9833 -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 1(c)</h3>
+                    <p>Is \( 9833 \) a prime number?</p>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(3, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(4)" title="Next"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution 1(c)</h3>
+                    <div class="step">
+                        <p><strong>Method:</strong> Square Root Test.</p>
+                        <p>\( \sqrt{9833} \approx 99.16 \)</p>
+                        <p>Check any prime \( n \) where \( 2 \le n < 99 \).</p>
+                    </div>
+                    <div class="step">
+                        <p>Upon testing, no prime less than 99 divides 9833.</p>
+                        <p class="highlight" style="color: var(--success);">Conclusion: 9833 is Prime.</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(3, 0)" title="Back to Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Task 1(d) 55551111 -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 1(d)</h3>
+                    <p>Is \( 55551111 \) a prime number?</p>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(4, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(5)" title="Next"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution 1(d)</h3>
+                    <div class="step">
+                        <p><strong>Method:</strong> Sum of Digits.</p>
+                        <p>\( 5+5+5+5+1+1+1+1 = 24 \)</p>
+                    </div>
+                    <div class="step">
+                        <p>\( 24 \) is divisible by 3.</p>
+                        <p>\( 55551111 \equiv 24 \equiv 0 \pmod 3 \)</p>
+                        <p class="highlight" style="color: var(--highlight);">Conclusion: 55551111 is Not Prime.</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(4, 0)" title="Back to Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Task 1(e) Big Number -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 1(e)</h3>
+                    <p>Is \( 2^{216000} - 1 \) a prime number?</p>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(5, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(6)" title="Problem 17"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution 1(e)</h3>
+                    <div class="step">
+                        <p><strong>Method:</strong> Difference of Squares.</p>
+                        <div class="math-block" style="overflow-x: auto; font-size: 0.9em;">$$ 2^{216000} - 1 =
+                            (2^{108000})^2 - 1^2 $$</div>
+                        <div class="math-block" style="overflow-x: auto; font-size: 0.9em;">$$ = (2^{108000} -
+                            1)(2^{108000} + 1) $$</div>
+                    </div>
+                    <div class="step">
+                        <p>It can be factored into two integers greater than 1.</p>
+                        <p class="highlight" style="color: var(--highlight);">Conclusion: Not Prime.</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(5, 0)" title="Back to Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Problem 17 (a)-(b) d(n) -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Problem 17</h3>
+                    <p>Let \( d(n) \) be the number of positive divisors of \( n \).</p>
+                    <p><strong>(a)</strong> If \( d(n) = 2 \), what is \( n \)?</p>
+                    <p><strong>(b)</strong> If \( d(n) = 3 \), what is \( n \)?</p>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(6, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(7)" title="Summary"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution 17</h3>
+                    <div class="step">
+                        <p><strong>(a) \( d(n) = 2 \)</strong></p>
+                        <p>Only prime numbers have exactly 2 divisors (1 and itself).</p>
+                        <p class="highlight">Conclusion: \( n \) is Prime.</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>(b) \( d(n) = 3 \)</strong></p>
+                        <p>Divisors must be \( 1, p, p^2 \).</p>
+                        <p>If \( n \) had two distinct prime factors \( p, q \), divisors > 3.</p>
+                        <p class="highlight">Conclusion: \( n \) is the Square of a Prime (\( p^2 \)).</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(6, 0)" title="Back to Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>Summary: Section 3</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Question</th>
+                                <th>Is it Prime? / Type</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Is 157 Prime?</td>
+                                <td>
+                                    <select class="quiz-input" id="q-1a" style="width: 140px;">
+                                        <option value="">Select...</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="review-btn" onclick="scrollToRow(1)">Review</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Is 9831 Prime?</td>
+                                <td>
+                                    <select class="quiz-input" id="q-1b" style="width: 140px;">
+                                        <option value="">Select...</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="review-btn" onclick="scrollToRow(2)">Review</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Is 9833 Prime?</td>
+                                <td>
+                                    <select class="quiz-input" id="q-1c" style="width: 140px;">
+                                        <option value="">Select...</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="review-btn" onclick="scrollToRow(3)">Review</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Is \( 55551111 \) Prime?</td>
+                                <td>
+                                    <select class="quiz-input" id="q-1d" style="width: 140px;">
+                                        <option value="">Select...</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="review-btn" onclick="scrollToRow(4)">Review</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Is \( 2^{216000}-1 \) Prime?</td>
+                                <td>
+                                    <select class="quiz-input" id="q-1e" style="width: 140px;">
+                                        <option value="">Select...</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="review-btn" onclick="scrollToRow(5)">Review</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>d(n) = 2 implies n is:</td>
+                                <td>
+                                    <select class="quiz-input" id="q-17a" style="width: 160px;">
+                                        <option value="">Select...</option>
+                                        <option value="Unknown">Unknown</option>
+                                        <option value="Prime">Prime</option>
+                                        <option value="Square of Prime">Square of Prime</option>
+                                        <option value="Even">Even</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="review-btn" onclick="scrollToRow(6)">Review</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>d(n) = 3 implies n is:</td>
+                                <td>
+                                    <select class="quiz-input" id="q-17b" style="width: 160px;">
+                                        <option value="">Select...</option>
+                                        <option value="Unknown">Unknown</option>
+                                        <option value="Prime">Prime</option>
+                                        <option value="Square of Prime">Square of Prime</option>
+                                        <option value="Odd">Odd</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <button class="review-btn" onclick="scrollToRow(6)">Review</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="check-btn secondary" onclick="showAnswers()">Show Answers</button>
+                        <button class="check-btn" onclick="checkAnswers()">Check Answers</button>
+                        <div id="check-message" style="margin-top: 1rem; color: #cbd5e1;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.quizData = {
+            '1a': { answers: { q: 'Yes' } },
+            '1b': { answers: { q: 'No' } },
+            '1c': { answers: { q: 'Yes' } },
+            '1d': { answers: { q: 'No' } },
+            '1e': { answers: { q: 'No' } },
+            '17a': { answers: { q: 'Prime' } },
+            '17b': { answers: { q: 'Square of Prime' } }
+        };
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

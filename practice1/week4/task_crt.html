@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discrete Math: CRT</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <a href="index.html"
+        style="position: fixed; top: 20px; left: 20px; z-index: 1000; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 99px; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px); transition: all 0.2s;"
+        onmouseover="this.style.color='white'; this.style.borderColor='white'"
+        onmouseout="this.style.color='rgba(255,255,255,0.6)'; this.style.borderColor='rgba(255,255,255,0.1)'">← Back to
+        Menu</a>
+
+    <div class="progress-nav">
+        <div class="nav-dot active" data-label="Intro" onclick="scrollToRow(0)"></div>
+        <div class="nav-dot" data-label="18(a) CRT" onclick="scrollToRow(1)"></div>
+        <div class="nav-dot" data-label="18(c) CRT" onclick="scrollToRow(2)"></div>
+        <div class="nav-dot" data-label="Summary" onclick="scrollToRow(3)"></div>
+    </div>
+
+    <div id="deck">
+
+        <!-- Slide 1: Title -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h1>Discrete Mathematics</h1>
+                    <h2>Section 5: Chinese Remainder Theorem</h2>
+                    <div class="math-block">Solving Systems of Linear Congruences</div>
+                </div>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(1)" title="Next Slide"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Problem 18(a) -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Problem 18(a)</h3>
+                    <div class="highlight-box">
+                        <p class="mb-2"><strong>Solve the System:</strong></p>
+                        <div class="math-block">
+                            $$
+                            \begin{cases}
+                            x \equiv 3 \pmod 5 \\
+                            x \equiv 4 \pmod 7
+                            \end{cases}
+                            $$
+                        </div>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(1, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(2)" title="Next"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution 18(a)</h3>
+                    <div class="step">
+                        <p><strong>1. Calculate N:</strong></p>
+                        <p>\( N = 5 \times 7 = 35 \).</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>2. Setup Formula:</strong></p>
+                        <p>\( x = \frac{35}{5}(3)b_1 + \frac{35}{7}(4)b_2 \pmod{35} \)</p>
+                        <p>\( x = 21b_1 + 20b_2 \pmod{35} \)</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>3. Find Inverses:</strong></p>
+                        <ul style="margin:0;">
+                            <li>\( 7b_1 \equiv 1 \pmod 5 \implies 2b_1 \equiv 1 \pmod 5 \implies b_1 \equiv 3 \pmod 5 \)
+                            </li>
+                            <li>\( 5b_2 \equiv 1 \pmod 7 \implies b_2 \equiv 3 \pmod 7 \)
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="step">
+                        <p><strong>4. Final Calculation:</strong></p>
+                        <p>\( x = 21(3) + 20(3) \pmod{35} = 63 + 60 \pmod{35} = 123 \pmod{35} \)</p>
+                        <p>\( 123 \pmod{35} \equiv 18 \pmod{35} \)</p>
+                        <p class="highlight" style="color: var(--success);">Result: \( x \equiv 18 \pmod{35} \)</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(1, 0)" title="Back to Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Problem 18(c) -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Problem 18(c)</h3>
+                    <div class="highlight-box">
+                        <p class="mb-2"><strong>Solve the System:</strong></p>
+                        <div class="math-block">
+                            $$
+                            \begin{cases}
+                            x \equiv 3 \pmod 5 \\
+                            x \equiv 7 \pmod 8
+                            \end{cases}
+                            $$
+                        </div>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(2, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(3)" title="Summary"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution 18(c)</h3>
+                    <div class="step">
+                        <p><strong>1. Calculate N:</strong></p>
+                        <p>\( N = 5 \times 8 = 40 \).</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>2. Setup Formula:</strong></p>
+                        <p>\( x = \frac{40}{5}(3)b_1 + \frac{40}{8}(7)b_2 \pmod{40} \)</p>
+                        <p>\( x = 24b_1 + 35b_2 \pmod{40} \)</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>3. Find Inverses:</strong></p>
+                        <ul style="margin:0;">
+                            <li>\( 8b_1 \equiv 1 \pmod 5 \implies 3b_1 \equiv 1 \pmod 5 \implies b_1 \equiv 2 \pmod 5 \)
+                            </li>
+                            <li>\( 5b_2 \equiv 1 \pmod 8 \implies b_2 \equiv 5 \pmod 8 \)</li>
+                        </ul>
+                    </div>
+                    <div class="step">
+                        <p><strong>4. Final Calculation:</strong></p>
+                        <p>\( x = 24(2) + 35(5) \pmod{40} = 48 + 175 \pmod{40} = 223 \pmod{40} \)</p>
+                        <p>\( 223 \pmod{40} \equiv 23 \pmod{40} \)</p>
+                        <p class="highlight" style="color: var(--success);">Result: \( x \equiv 23 \pmod{40} \)</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(2, 0)" title="Back to Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>Summary: Section 5 (CRT)</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Problem</th>
+                                <th>Modulus N</th>
+                                <th>Result x</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>18(a) {x≡3(5), x≡4(7)}</td>
+                                <td>35</td>
+                                <td><input type="number" class="quiz-input" id="q-18a" placeholder="x=?"></td>
+                                <td><button class="review-btn" onclick="scrollToRow(1)">Review</button></td>
+                            </tr>
+                            <tr>
+                                <td>18(c) {x≡3(5), x≡7(8)}</td>
+                                <td>40</td>
+                                <td><input type="number" class="quiz-input" id="q-18c" placeholder="x=?"></td>
+                                <td><button class="review-btn" onclick="scrollToRow(2)">Review</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="check-btn secondary" onclick="showAnswers()">Show Answers</button>
+                        <button class="check-btn" onclick="checkAnswers()">Check Answers</button>
+                        <div id="check-message" style="margin-top: 1rem; color: #cbd5e1;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.quizData = {
+            '18a': { answers: { q: 18 } },
+            '18c': { answers: { q: 23 } }
+        };
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

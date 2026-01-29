@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discrete Math: Linear Diophantine Eq</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <a href="index.html"
+        style="position: fixed; top: 20px; left: 20px; z-index: 1000; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 99px; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px); transition: all 0.2s;"
+        onmouseover="this.style.color='white'; this.style.borderColor='white'"
+        onmouseout="this.style.color='rgba(255,255,255,0.6)'; this.style.borderColor='rgba(255,255,255,0.1)'">← Back to
+        Menu</a>
+
+    <div class="progress-nav">
+        <div class="nav-dot active" data-label="Intro" onclick="scrollToRow(0)"></div>
+        <div class="nav-dot" data-label="Method" onclick="scrollToRow(1)"></div>
+        <div class="nav-dot" data-label="Task (a)" onclick="scrollToRow(2)"></div>
+        <div class="nav-dot" data-label="Task (b)" onclick="scrollToRow(3)"></div>
+        <div class="nav-dot" data-label="Task (c)" onclick="scrollToRow(4)"></div>
+        <div class="nav-dot" data-label="Summary" onclick="scrollToRow(5)"></div>
+    </div>
+
+    <div id="deck">
+
+        <!-- Slide 1: Title -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h1>Discrete Mathematics</h1>
+                    <h2>Section 2: Integers</h2>
+                    <div class="math-block">Task 17: Linear Diophantine Equations</div>
+                    <p>Solving \( ax + by = c \) for integers \( x, y \).</p>
+                </div>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(1)" title="Next Slide"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Slide 2: Definition -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>The Condition</h2>
+                    <p>A Linear Diophantine Equation \( ax + by = c \) has integer solutions if and only if:</p>
+                    <div class="math-block">$$ \gcd(a, b) \mid c $$</div>
+                    <p>If solutions exist, they are of the form:</p>
+                    <p>\( x = x_0 + \frac{b}{d}t \), \( y = y_0 - \frac{a}{d}t \)</p>
+                </div>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(2)" title="Start Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Task (a) -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 17(a)</h3>
+                    <p>Solve for \( x, y \):</p>
+                    <div class="math-block">$$ 17369x + 5472y = 4 $$</div>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(2, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(3)" title="Next Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution (a)</h3>
+                    <div class="step">
+                        <p><strong>1. Euclidean Algorithm (Find GCD):</strong></p>
+                        <div class="math-block" style="font-size: 0.9em;">
+                            $$ 17369 = 5472(3) + 953 $$
+                            $$ 5472 = 953(5) + 707 $$
+                            $$ 953 = 707(1) + 246 $$
+                            $$ 707 = 246(2) + 215 $$
+                            $$ 246 = 215(1) + 31 $$
+                            $$ 215 = 31(6) + 29 $$
+                            $$ 31 = 29(1) + 2 $$
+                            $$ 29 = 2(14) + 1 $$
+                            $$ 2 = 1(2) + 0 $$
+                        </div>
+                        <p>$$ \gcd(17369, 5472) = 1 $$</p>
+                        <p>Since \( 1 \mid 4 \), solutions exist.</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>2. Back Substitution (Found 1):</strong></p>
+                        <p>\( 1 = 29 - 2(14) \)</p>
+                        <p>\( = 29 - (31 - 29)(14) = 29(15) - 31(14) \)</p>
+                        <p>\( = (215 - 31(6))(15) - 31(14) = 215(15) - 31(104) \)</p>
+                        <p>\( = 215(15) - (246 - 215)(104) = 215(119) - 246(104) \)</p>
+                        <p>\( = (707 - 246(2))(119) - 246(104) = 707(119) - 246(342) \)</p>
+                        <p>\( = 707(119) - (953 - 707)(342) = 707(461) - 953(342) \)</p>
+                        <p>\( = (5472 - 953(5))(461) - 953(342) = 5472(461) - 953(2647) \)</p>
+                        <p>\( = 5472(461) - (17369 - 5472(3))(2647) = 5472(8402) - 17369(2647) \)</p>
+
+                        <p>Multiply by 4 for \( c=4 \):</p>
+                        <div class="math-block">$$ 4 = 17369(-10588) + 5472(33608) $$</div>
+                        <p>So \( x_0 = -10588, \quad y_0 = 33608 \).</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>3. General Solution:</strong></p>
+                        <p>\( x = -10588 + 5472t \)</p>
+                        <p>\( y = 33608 - 17369t \)</p>
+                        <p style="color: var(--highlight); margin-bottom: 0.5rem;"><strong>Simplify by substitution \( t
+                                := t + 2 \):</strong></p>
+                        <p>\( x = -10588 + 5472(t + 2) = -10588 + 10944 + 5472t = 356 + 5472t \)</p>
+                        <p>\( y = 33608 - 17369(t + 2) = 33608 - 34738 - 17369t = -1130 - 17369t \)</p>
+                        <div class="highlight-box" style="margin-top: 1rem; border-color: var(--success);">
+                            <div class="math-block" style="margin:0;">$$ x = 356 + 5472t $$</div>
+                            <div class="math-block" style="margin:0;">$$ y = -1130 - 17369t, \quad \text{any } t \in
+                                \mathbb{Z} $$</div>
+                        </div>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(2, 0)" title="Back to Task">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Task (b) -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 17(b)</h3>
+                    <p>Solve for \( x, y \):</p>
+                    <div class="math-block">$$ 154x + 260y = 4 $$</div>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(3, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(4)" title="Next Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution (b)</h3>
+                    <div class="step">
+                        <p><strong>1. Euclidean Algorithm:</strong></p>
+                        <p>\( 260 = 154(1) + 106 \)</p>
+                        <p>\( 154 = 106(1) + 48 \)</p>
+                        <p>\( 106 = 48(2) + 10 \)</p>
+                        <p>\( 48 = 10(4) + 8 \)</p>
+                        <p>\( 10 = 8(1) + 2 \)</p>
+                        <p>\( 8 = 2(4) + 0 \)</p>
+                        <p class="highlight" style="color: var(--success); margin-top: 0.5rem;">\( \gcd(154, 260) = 2
+                            \). Since \( 2 \mid 4 \), solution exists.</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>2. Back Substitution (Linear Combination):</strong></p>
+                        <p>\( 2 = 10 - 8 \)</p>
+                        <p>\( = 10 - (48 - 10 \cdot 4) = 5 \cdot 10 - 48 \)</p>
+                        <p>\( = 5(106 - 48 \cdot 2) - 48 = 5 \cdot 106 - 11 \cdot 48 \)</p>
+                        <p>\( = 5 \cdot 106 - 11(154 - 106) = 16 \cdot 106 - 11 \cdot 154 \)</p>
+                        <p>\( = 16(260 - 154) - 11 \cdot 154 = 16 \cdot 260 - 27 \cdot 154 \)</p>
+                        <p class="highlight" style="color: var(--highlight);">\( 2 = 16(260) - 27(154) \)</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>3. General Solution:</strong></p>
+                        <p>Multiply by 2 for \( c=4 \): \( 4 = 32(260) - 54(154) \).</p>
+                        <p>So \( x_0 = -54, y_0 = 32 \).</p>
+                        <div class="math-block">$$ x = -54 + 130t $$</div>
+                        <div class="math-block">$$ y = 32 - 77t, \quad t \in \mathbb{Z} $$</div>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(3, 0)" title="Back to Task">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Task (c) -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 17(c)</h3>
+                    <p>Solve for \( x, y \):</p>
+                    <div class="math-block">$$ 154x + 260y = 3 $$</div>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(4, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(5)" title="Summary"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution (c)</h3>
+                    <div class="step">
+                        <p><strong>1. GCD:</strong></p>
+                        <p>From Part (b), we know \( \gcd(154, 260) = 2 \).</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>2. Check Condition:</strong></p>
+                        <p>Does the GCD divide the constant term \( c = 3 \)?</p>
+                        <p>$$ 2 \nmid 3 $$</p>
+                    </div>
+                    <div class="step">
+                        <p class="highlight" style="color: var(--highlight);">No Integer Solutions.</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(4, 0)" title="Back to Task">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>Summary: Task 17</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Part</th>
+                                <th>GCD</th>
+                                <th>Base x (t=0)</th>
+                                <th>Base y (t=0)</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>(a)</td>
+                                <td><input type="number" class="quiz-input" id="gcd-a" placeholder="?"></td>
+                                <td><input type="number" class="quiz-input" id="x-a" placeholder="?"></td>
+                                <td>
+                                    <input type="number" class="quiz-input" id="y-a" placeholder="?">
+                                    <button class="review-btn" onclick="scrollToRow(2)">Review</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>(b)</td>
+                                <td><input type="number" class="quiz-input" id="gcd-b" placeholder="?"></td>
+                                <td><input type="number" class="quiz-input" id="x-b" placeholder="?"></td>
+                                <td>
+                                    <input type="number" class="quiz-input" id="y-b" placeholder="?">
+                                    <button class="review-btn" onclick="scrollToRow(3)">Review</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>(c)</td>
+                                <td><input type="number" class="quiz-input" id="gcd-c" placeholder="?"></td>
+                                <td colspan="2" style="text-align: center; color: var(--highlight); opacity: 0.7;">No
+                                    Solution</td>
+                                <td>
+                                    <button class="review-btn" onclick="scrollToRow(4)">Review</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="check-btn secondary" onclick="showAnswers()">Show Answers</button>
+                        <button class="check-btn" onclick="checkAnswers()">Check Answers</button>
+                        <div id="check-message" style="margin-top: 1rem; color: #cbd5e1;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.quizData = {
+            'a': { answers: { gcd: 1, x: 356, y: -1130 } },
+            'b': { answers: { gcd: 2, x: -54, y: 32 } },
+            'c': { answers: { gcd: 2 } }
+        };
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

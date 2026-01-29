@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 8: Combinatorics</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&family=Roboto+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+</head>
+<style>
+    /* Landing Page Specific Overrides */
+    body {
+        overflow-y: auto;
+        padding: 2rem;
+        display: block;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .main-header {
+        text-align: center;
+        margin-bottom: 4rem;
+        animation: fadeIn 0.8s ease-out;
+    }
+
+    .main-header h1 {
+        font-size: 3rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .subtitle {
+        color: #94a3b8;
+        font-size: 1.2rem;
+    }
+
+    .section-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        padding-bottom: 4rem;
+    }
+
+    .task-card {
+        background: var(--glass-bg);
+        border: 1px solid var(--glass-border);
+        border-radius: 20px;
+        padding: 2rem;
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-decoration: none;
+        display: block;
+        backdrop-filter: blur(12px);
+    }
+
+    .task-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(56, 189, 248, 0.2);
+        border-color: var(--accent-color);
+    }
+
+    .task-meta {
+        color: var(--highlight);
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+        font-weight: 700;
+    }
+
+    .task-title {
+        color: var(--text-color);
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 600;
+    }
+
+    .task-desc {
+        color: #94a3b8;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .status-badge {
+        display: inline-block;
+        padding: 0.25rem 0.75rem;
+        border-radius: 99px;
+        font-size: 0.8rem;
+        margin-top: 1.5rem;
+        background: rgba(74, 222, 128, 0.1);
+        color: var(--success);
+        border: 1px solid rgba(74, 222, 128, 0.2);
+    }
+</style>
+
+<body>
+
+    <header class="main-header">
+        <h1>Discrete Math Practice</h1>
+        <p class="subtitle">Week 8: Combinatorics & Counting</p>
+        <a href="../index.html" class="back-link" style="
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--accent-color);
+        ">← Back to Week Selection</a>
+    </header>
+
+    <div class="container">
+        <!-- Section 2 -->
+        <h3 style="margin-bottom: 2rem; border-color: var(--accent-color);">Section 2: Definitions & Properties</h3>
+        <p style="color: #94a3b8; margin-bottom: 2rem;">Basic concepts: Vertices, Edges, Degrees, Subgraphs, Q-cubes.
+        </p>
+        <div class="section-grid">
+            <!-- Task S2 -->
+            <a href="task_s2.html" class="task-card">
+                <div class="task-meta" style="color: var(--accent-color);">Problems 1, 3, 5, 12, 15, 17, 18</div>
+                <div class="task-title">Graph Basics</div>
+                <div class="task-desc">
+                    Drawing graphs, Handshaking Lemma, Degree sequences, and Special graphs ($K_n, C_n, W_n, Q_n$).
+                </div>
+                <div class="status-badge">New</div>
+            </a>
+        </div>
+
+        <!-- Section 3 -->
+        <h3 style="margin-bottom: 2rem; border-color: var(--highlight);">Section 3: Isomorphism</h3>
+        <div class="section-grid">
+            <!-- Task S3 -->
+            <a href="task_s3.html" class="task-card">
+                <div class="task-meta" style="color: var(--highlight);">Problems 1, 4, 5</div>
+                <div class="task-title">Graph Isomorphism</div>
+                <div class="task-desc">
+                    Determining if two graphs are structurally identical. Checking invariants (vertices, edges,
+                    degrees).
+                </div>
+                <div class="status-badge">New</div>
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>

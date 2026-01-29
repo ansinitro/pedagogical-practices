@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discrete Math: Modular Arithmetic</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <a href="index.html"
+        style="position: fixed; top: 20px; left: 20px; z-index: 1000; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 99px; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px); transition: all 0.2s;"
+        onmouseover="this.style.color='white'; this.style.borderColor='white'"
+        onmouseout="this.style.color='rgba(255,255,255,0.6)'; this.style.borderColor='rgba(255,255,255,0.1)'">← Back to
+        Menu</a>
+
+    <div class="progress-nav">
+        <div class="nav-dot active" data-label="Intro" onclick="scrollToRow(0)"></div>
+        <div class="nav-dot" data-label="Task 3: Modulo" onclick="scrollToRow(1)"></div>
+        <div class="nav-dot" data-label="Task 7: Ops" onclick="scrollToRow(2)"></div>
+        <div class="nav-dot" data-label="Task 9: Congruences" onclick="scrollToRow(3)"></div>
+        <div class="nav-dot" data-label="Task 22: Fermat" onclick="scrollToRow(4)"></div>
+        <div class="nav-dot" data-label="Summary" onclick="scrollToRow(5)"></div>
+    </div>
+
+    <div id="deck">
+
+        <!-- Slide 1: Title -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h1>Discrete Mathematics</h1>
+                    <h2>Section 4: Modular Arithmetic</h2>
+                    <div class="math-block">Basic Modulo, Linear Congruences & Fermat's Little Theorem</div>
+                </div>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(1)" title="Next Slide"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Task 3: Basic Modulo -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 3</h3>
+                    <p>Find \( a \pmod n \) for:</p>
+                    <ul>
+                        <li>(a) \( a = 1286, n = 39 \)</li>
+                        <li>(b) \( a = 43197, n = 333 \)</li>
+                        <li>(c) \( a = -545608, n = 51 \)</li>
+                        <li>(d) \( a = -125617, n = 315 \)</li>
+                        <li>(e) \( a = 111,111,111,111, n = 1111 \)</li>
+                    </ul>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(1, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(2)" title="Next"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution Task 3</h3>
+                    <div class="step">
+                        <p><strong>(a)</strong> \( 1286 = 39(32) + 38 \implies 1286 \equiv 38 \pmod{39} \)</p>
+                        <p><strong>(b)</strong> \( 43197 = 333(129) + 240 \implies 43197 \equiv 240 \pmod{333} \)</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>(c)</strong> \( -545608 \pmod{51} \)</p>
+                        <p class="highlight" style="font-size: 0.85em; color: #94a3b8;">Recall: \( a = nq + r \). For
+                            negatives, round quotient <em>down</em>.</p>
+                        <p>\( -545608 = 51(-10699) + 41 \)</p>
+                        <p>\( \implies -545608 \equiv 41 \pmod{51} \)</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>(d)</strong> \( -125617 \pmod{315} \)</p>
+                        <p>\( -125617 = 315(-399) + 68 \)</p>
+                        <p>\( \implies -125617 \equiv 68 \pmod{315} \)</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>(e)</strong> \( 111...111 = 1111(100010000) + 111 \implies 111...111 \equiv 111
+                            \pmod{1111} \)</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(1, 0)" title="Back to Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Task 7: Operations -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 7(a) Operations</h3>
+                    <div class="highlight-box">
+                        <p class="mb-2"><strong>Given:</strong></p>
+                        <p>\( a=4003, b=-127, n=85 \)</p>
+                    </div>
+                    <p><strong>Find:</strong></p>
+                    <ul style="margin-top: 0;">
+                        <li>\( (a+b) \pmod{n} \)</li>
+                        <li>\( ab \pmod{n} \)</li>
+                        <li>\( (a+b)^2 \pmod{n} \)</li>
+                    </ul>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(2, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(3)" title="Next"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution Task 7(a)</h3>
+                    <div class="step">
+                        <p><strong>1. \( a+b \):</strong></p>
+                        <p>\( 4003 - 127 = 3876 \)</p>
+                        <p>\( 3876 = 85(45) + 51 \implies 3876 \equiv 51 \pmod{85} \)</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>2. \( ab \):</strong></p>
+                        <p>\( 4003(-127) = -508381 \)</p>
+                        <p>\( -508381 = 85(-5981) + 4 \implies ab \equiv 4 \pmod{85} \)</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>3. \( (a+b)^2 \):</strong></p>
+                        <p>\( 51^2 = 2601 \)</p>
+                        <p>\( 2601 = 85(30) + 51 \implies (a+b)^2 \equiv 51 \pmod{85} \)</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(2, 0)" title="Back to Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Task 9: Congruences -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 9: Linear Congruences</h3>
+                    <p>Solve for \( x \):</p>
+                    <ul>
+                        <li>(a) \( 3x \equiv 4 \pmod 6 \)</li>
+                        <li>(b) \( 4x \equiv 2 \pmod 6 \)</li>
+                        <li>(c) \( 4x \equiv 3 \pmod 7 \)</li>
+                        <li>(d) \( 4x \equiv 3 \pmod 6 \)</li>
+                    </ul>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(3, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(4)" title="Next"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution Task 9</h3>
+                    <div class="step">
+                        <p><strong>(a) \( 3x \equiv 4 \pmod 6 \)</strong></p>
+                        <table class="data-table">
+                            <tr>
+                                <th>x</th>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <th>3x</th>
+                                <td>0</td>
+                                <td>3</td>
+                                <td>6≡0</td>
+                                <td>9≡3</td>
+                                <td>12≡0</td>
+                                <td>15≡3</td>
+                            </tr>
+                        </table>
+                        <p class="highlight" style="margin-top: 0.5rem; color: var(--highlight);">No x gives 4. No
+                            Solution.</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>(b) \( 4x \equiv 2 \pmod 6 \)</strong></p>
+                        <table class="data-table">
+                            <tr>
+                                <th>x</th>
+                                <td>0</td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <th>4x</th>
+                                <td>0</td>
+                                <td>4</td>
+                                <td><strong>8≡2</strong></td>
+                                <td>12≡0</td>
+                                <td>16≡4</td>
+                                <td><strong>20≡2</strong></td>
+                            </tr>
+                        </table>
+                        <p class="highlight" style="margin-top: 0.5rem; color: var(--success);">Solutions: x = 2, x = 5.
+                        </p>
+                    </div>
+                    <div class="step">
+                        <p><strong>(c) \( 4x \equiv 3 \pmod 7 \):</strong></p>
+                        <p>Inverse of 4 mod 7 is 2. \( x \equiv 3(2) \equiv 6 \).</p>
+                        <p class="highlight">x = 6.</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>(d) \( 4x \equiv 3 \pmod 6 \):</strong></p>
+                        <p>4x is even, 3 is odd. Impossible.</p>
+                        <p class="highlight">No Solution.</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(3, 0)" title="Back to Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Task 22: Fermat -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Task 22(b): Fermat's Little Theorem</h3>
+                    <div class="highlight-box">
+                        <p class="mb-2"><strong>Evaluate:</strong></p>
+                        <div class="math-block" style="margin: 0;">$$ 53^{20592} \pmod{20593} $$</div>
+                    </div>
+                    <p>Theorem: If \( p \) is prime, \( a^{p-1} \equiv 1 \pmod p \).</p>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(4, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(5)" title="Summary"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution Task 22(b)</h3>
+                    <div class="step">
+                        <p style="color: var(--highlight); margin-bottom: 0.5rem;"><strong>By Fermat's Little
+                                Theorem:</strong></p>
+                        <p>If \( \gcd(a, p) = 1 \) and \( p \) is prime, then:</p>
+                        <div class="math-block" style="margin: 0.5rem 0;">$$ a^{p-1} \equiv 1 \pmod p $$</div>
+                    </div>
+                    <div class="step">
+                        <p>Since \( 20593 \) is prime and \( \gcd(53, 20593)=1 \):</p>
+                        <div class="math-block">$$ 53^{20592} \equiv 1 \pmod{20593} $$</div>
+                    </div>
+                    <div class="step">
+                        <p><strong>Extensions:</strong></p>
+                        <ul style="list-style: none; padding-left: 0;">
+                            <li>\( 53^{20593} = 53 \cdot 53^{20592} \equiv 53 \cdot 1 \equiv 53 \pmod{20593} \)</li>
+                            <li style="margin-top: 0.5rem;">\( 53^{20594} = 53^2 \cdot 53^{20592} \equiv 2809 \cdot 1
+                                \equiv 2809 \pmod{20593} \)</li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(4, 0)" title="Back to Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Summary -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>Summary: Section 4</h2>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Result</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3(a) 1286 mod 39</td>
+                                <td><input type="number" class="quiz-input" id="q-3a" placeholder="?"></td>
+                                <td><button class="review-btn" onclick="scrollToRow(1)">Review</button></td>
+                            </tr>
+                            <tr>
+                                <td>7(a) (a+b)^2 mod 85</td>
+                                <td><input type="number" class="quiz-input" id="q-7a3" placeholder="?"></td>
+                                <td><button class="review-btn" onclick="scrollToRow(2)">Review</button></td>
+                            </tr>
+                            <tr>
+                                <td>9(b) 4x ≡ 2 mod 6 (One sol)</td>
+                                <td><input type="number" class="quiz-input" id="q-9b" placeholder="x=?"></td>
+                                <td><button class="review-btn" onclick="scrollToRow(3)">Review</button></td>
+                            </tr>
+                            <tr>
+                                <td>9(c) 4x ≡ 3 mod 7</td>
+                                <td><input type="number" class="quiz-input" id="q-9c" placeholder="x=?"></td>
+                                <td><button class="review-btn" onclick="scrollToRow(3)">Review</button></td>
+                            </tr>
+                            <tr>
+                                <td>22(b) 53^20592 mod p</td>
+                                <td><input type="number" class="quiz-input" id="q-22b" placeholder="?"></td>
+                                <td><button class="review-btn" onclick="scrollToRow(4)">Review</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div style="text-align: center; margin-top: 2rem;">
+                        <button class="check-btn secondary" onclick="showAnswers()">Show Answers</button>
+                        <button class="check-btn" onclick="checkAnswers()">Check Answers</button>
+                        <div id="check-message" style="margin-top: 1rem; color: #cbd5e1;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        window.quizData = {
+            '3a': { answers: { q: 38 } },
+            '7a3': { answers: { q: 51 } },
+            '9b': { answers: { q: 2 } }, // Just checking one valid solution for simplicity or we can update script to accept multiple
+            '9c': { answers: { q: 6 } },
+            '22b': { answers: { q: 1 } }
+        };
+    </script>
+    <script src="script.js"></script>
+</body>
+
+</html>

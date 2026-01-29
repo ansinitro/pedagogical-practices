@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 8: Isomorphism</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+</head>
+
+<body>
+    <a href="index.html"
+        style="position: fixed; top: 20px; left: 20px; z-index: 1000; color: rgba(255,255,255,0.6); text-decoration: none; font-size: 0.9rem; padding: 0.5rem 1rem; border: 1px solid rgba(255,255,255,0.1); border-radius: 99px; background: rgba(0,0,0,0.3); backdrop-filter: blur(4px); transition: all 0.2s;"
+        onmouseover="this.style.color='white'; this.style.borderColor='white'"
+        onmouseout="this.style.color='rgba(255,255,255,0.6)'; this.style.borderColor='rgba(255,255,255,0.1)'">← Back to
+        Menu</a>
+
+    <div class="progress-nav">
+        <div class="nav-dot active" data-label="Intro" onclick="scrollToRow(0)"></div>
+        <div class="nav-dot" data-label="Prob 1" onclick="scrollToRow(1)"></div>
+        <div class="nav-dot" data-label="Prob 4" onclick="scrollToRow(2)"></div>
+        <div class="nav-dot" data-label="Prob 5" onclick="scrollToRow(3)"></div>
+        <div class="nav-dot" data-label="Summary" onclick="scrollToRow(4)"></div>
+    </div>
+
+    <div id="deck">
+
+        <!-- Slide 1: Title -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h1>Section 3</h1>
+                    <h2>Graph Isomorphism</h2>
+                    <div class="math-block">$$ G_1 \cong G_2 $$</div>
+                </div>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(1)" title="Next Slide"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Problem 1 -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Problem 1</h3>
+                    <p>Are the graphs \( G \) and \( H \) isomorphic?</p>
+                    <p><em>(Placeholder for textbook graphs)</em></p>
+                    <div class="highlight-box" style="border-color: var(--highlight);">
+                        <p><strong>Check Invariants:</strong></p>
+                        <ul>
+                            <li>Number of vertices?</li>
+                            <li>Number of edges?</li>
+                            <li>Degree sequence?</li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(1, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(2)"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution 1</h3>
+                    <div class="step">
+                        <p><strong>Step 1:</strong> Count vertices/edges.</p>
+                        <p>If they differ \( \implies \) <strong>Not Isomorphic</strong>.</p>
+                    </div>
+                    <div class="step">
+                        <p><strong>Step 2:</strong> Check degrees.</p>
+                        <p>If \( G \) has a vertex of degree 3 and \( H \) does not \( \implies \) <strong>Not
+                                Isomorphic</strong>.</p>
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(1, 0)" title="Back to Task"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Problem 4 -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Problem 4</h3>
+                    <p>Show that the following graphs are isomorphic by defining a bijection \( f: V_1 \to V_2 \).</p>
+                    <p><em>(Placeholder)</em></p>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(2, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(3)"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <h3>Solution 4</h3>
+                    <p>Define mapping \( f \):</p>
+                    <div class="math-block">
+                        $$ f(u_1) = v_3 $$
+                        $$ f(u_2) = v_1 $$
+                        $$ \dots $$
+                    </div>
+                    <p>Check that adjacency is preserved: If \( (u_1, u_2) \in E_1 \), then \( (f(u_1), f(u_2)) \in E_2
+                        \).</p>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(2, 0)"><svg viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Problem 5 -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Problem 5</h3>
+                    <p>Determine isomorphism for these graphs.</p>
+                    <p><em>(Placeholder)</em></p>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(3, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(4)"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content">
+                    <p>Check cycles.</p>
+                    <p>If \( G \) has a triangle (cycle of length 3) and \( H \) does not, they are <strong>not
+                            isomorphic</strong>.</p>
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(3, 0)"><svg viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h2>Done!</h2>
+                    <p>You have completed the Week 8 exercises.</p>
+                    <a href="index.html" style="color: var(--accent-color); text-decoration: underline;">Back to
+                        Menu</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

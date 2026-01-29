@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Teacher's Guide - Discrete Math</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- KaTeX -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css"
+        integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"
+        integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8"
+        crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+        integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+    <style>
+        /* Specific overrides for readability */
+        body {
+            overflow-y: auto;
+            height: auto;
+            padding: 2rem;
+            background: #0f172a;
+            /* Ensure dark bg */
+        }
+
+        .document-container {
+            max-width: 900px;
+            margin: 0 auto;
+            color: #e2e8f0;
+            padding-bottom: 4rem;
+        }
+
+        .guide-section {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .recipe-box {
+            background: rgba(16, 185, 129, 0.1);
+            /* Emerald tint */
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .recipe-title {
+            color: var(--success);
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #fff 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        h2 {
+            border-bottom: 2px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.5rem;
+            margin-top: 0;
+            color: #fbbf24;
+            /* Amber */
+            font-size: 1.8rem;
+        }
+
+        h3 {
+            color: #818cf8;
+            /* Indigo */
+            margin-top: 2rem;
+            font-size: 1.4rem;
+        }
+
+        blockquote {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #fbbf24;
+            margin: 1rem 0;
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .question {
+            font-weight: 700;
+            color: #fca5a5;
+            /* Red-300 */
+            margin-top: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        table.ref-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        table.ref-table th,
+        table.ref-table td {
+            padding: 0.8rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        table.ref-table th {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--highlight);
+        }
+
+        code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #e2e8f0;
+        }
+
+        a.back-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 99px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(4px);
+            transition: all 0.2s;
+        }
+
+        a.back-btn:hover {
+            color: white;
+            border-color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="index.html" class="back-btn">← Back to Portal</a>
+
+    <div class="document-container">
+        <h1>Teacher's Master Guide</h1>
+        <p style="text-align: center; margin-bottom: 4rem; opacity: 0.8; font-size: 1.2rem;">
+            Definitions, Algorithms, and Answers for Discrete Math.
+        </p>
+
+        <!-- Cheat Sheet -->
+        <div class="guide-section">
+            <h2>Quick Reference: Definitions</h2>
+            <table class="ref-table">
+                <thead>
+                    <tr>
+                        <th>Term</th>
+                        <th>Definition</th>
+                        <th>Plain English</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Divides</strong> (\( a \mid b \))</td>
+                        <td>\( b = ak \) for some integer \( k \).</td>
+                        <td>"a fits perfectly into b".</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Prime</strong></td>
+                        <td>Integer \( p > 1 \) whose only divisors are 1 and \( p \).</td>
+                        <td>Can't be broken into smaller integer pieces.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GCD</strong></td>
+                        <td>Largest integer \( d \) such that \( d \mid a \) and \( d \mid b \).</td>
+                        <td>The biggest building block shared by both numbers.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Congruence</strong></td>
+                        <td>\( a \equiv b \pmod n \) if \( n \mid (a-b) \).</td>
+                        <td>"a and b land on the same spot on a clock of size n".</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Section 1 -->
+        <div class="guide-section">
+            <h2>Section 1: The Division Algorithm</h2>
+            <p><strong>Goal:</strong> Given any integers \( a, b \), write \( a = bq + r \).</p>
+
+            <div class="recipe-box">
+                <div class="recipe-title">⚡ Algorithm Recipe</div>
+                <ol>
+                    <li>Calculate \( q = \lfloor a/b \rfloor \). (Round down).</li>
+                    <li>Calculate \( r = a - bq \).</li>
+                    <li><strong>Check:</strong> Is \( 0 \le r < |b| \)? If yes, done.</li>
+                </ol>
+            </div>
+
+            <h3>Student FAQ</h3>
+            <p class="question">Q: Why did we subtract 1 from the quotient for negative numbers?</p>
+            <blockquote>
+                <p><strong>A:</strong> Because we need a <strong>positive remainder</strong>.</p>
+                <p>Example: \( -7 \div 2 \). Calculator says -3.5.</p>
+                <ul>
+                    <li>If \( q=-3 \): \( 2(-3) = -6 \). Remainder to -7 is -1. (BAD)</li>
+                    <li>If \( q=-4 \): \( 2(-4) = -8 \). Remainder to -7 is +1. (GOOD)</li>
+                </ul>
+                <p>We always push "down" (left on number line) to ensure the gap is positive.</p>
+            </blockquote>
+        </div>
+
+        <!-- Section 2 -->
+        <div class="guide-section">
+            <h2>Section 2: GCD & Linear Combinations</h2>
+            <p><strong>Goal:</strong> Find \( \gcd(a,b) \) and solve \( ax + by = c \).</p>
+
+            <div class="recipe-box">
+                <div class="recipe-title">⚡ Algorithm Recipe: Extended Euclidean</div>
+                <ol>
+                    <li><strong>Forward Pass:</strong> Divide \( a \) by \( b \) repeatedly until remainder is 0.
+                        <br>\( r_{last} \) is the GCD.
+                    </li>
+                    <li><strong>Check:</strong> Does GCD divide \( c \)? If no, STOP (no solution).</li>
+                    <li><strong>Backward Pass:</strong> Start with \( \text{GCD} = r_{n-2} - q \cdot r_{n-1} \).
+                        <br>Subsitute remainders upwards until you have \( \text{GCD} = a(x) + b(y) \).
+                    </li>
+                    <li><strong>Scale:</strong> Multiply \( x, y \) by \( c/\text{GCD} \) to get final solution.</li>
+                </ol>
+            </div>
+
+            <h3>Student FAQ</h3>
+            <p class="question">Q: Why shift the general solution (Task 17)?</p>
+            <blockquote>
+                <p><strong>A:</strong> To find the <strong>smallest positive solution</strong>. The math allows infinite
+                    solutions (\( x = x_0 + bt \)). We just pick the value of \( t \) that makes \( x \) small and
+                    positive because it's easier to read.</p>
+            </blockquote>
+        </div>
+
+        <!-- Section 3 -->
+        <div class="guide-section">
+            <h2>Section 3: Primes & Divisors (Task 1, 17)</h2>
+            <p><strong>Goal:</strong> Determine if \( n \) is prime and count its divisors \( d(n) \).</p>
+
+            <div class="recipe-box">
+                <div class="recipe-title">⚡ Algorithm Recipe: Primality Tests</div>
+                <ol>
+                    <li><strong>Sqrt Test:</strong> Check divisibility only up to \( \sqrt{n} \).</li>
+                    <li><strong>Digit Sum:</strong> Sum digits. If sum is divisible by 3, \( n \) is divisible by 3.
+                    </li>
+                    <li><strong>Fermat Factorization:</strong> If \( n = x^2 - y^2 \), then \( n = (x-y)(x+y) \). (Used
+                        for 9833).</li>
+                </ol>
+            </div>
+
+            <h3>Concept: Count of Divisors \( d(n) \)</h3>
+            <ul>
+                <li>\( d(n) = 2 \) means \( n \) has exactly 2 divisors (1 and itself). <strong>Definition of
+                        Prime.</strong></li>
+                <li>\( d(n) = 3 \) means \( n \) has exactly 3 divisors. This only happens for <strong>squares of
+                        primes</strong> (\( p^2 \)).
+                    <br><em>Ex:</em> 4 (1,2,4), 9 (1,3,9), 25 (1,5,25).
+                </li>
+            </ul>
+        </div>
+
+        <!-- Section 4 -->
+        <div class="guide-section">
+            <h2>Section 4: Modular Arithmetic</h2>
+
+            <h3>Key Theorems</h3>
+            <ul>
+                <li><strong>Fermat's Little Theorem:</strong> \( a^{p-1} \equiv 1 \pmod p \) if \( p \) is prime.
+                    <br><em>Use:</em> Reducing huge exponents modulo a prime.
+                </li>
+            </ul>
+
+            <p class="question">Q: How do I handle negative mods like \( -127 \pmod{85} \)?</p>
+            <blockquote>
+                <p><strong>A:</strong> Keep adding the modulus (85) until the number is positive.</p>
+                <p>\( -127 + 85 = -42 \)</p>
+                <p>\( -42 + 85 = 43 \)</p>
+                <p>So \( -127 \equiv 43 \pmod{85} \).</p>
+            </blockquote>
+        </div>
+
+        <!-- Section 5 -->
+        <div class="guide-section">
+            <h2>Section 5: Chinese Remainder Theorem</h2>
+            <p><strong>Goal:</strong> Solve for \( x \) giving specific remainders for different coprime moduli.</p>
+
+            <div class="recipe-box">
+                <div class="recipe-title">⚡ Algorithm Recipe: CRT</div>
+                <p>System: \( x \equiv a_1 \pmod{n_1}, \quad x \equiv a_2 \pmod{n_2} \)</p>
+                <ol>
+                    <li>Calculate total modulus \( N = n_1 \cdot n_2 \).</li>
+                    <li>Find partial moduli \( N_1 = N/n_1, N_2 = N/n_2 \).</li>
+                    <li>Find inverses \( y_1 \) such that \( N_1 y_1 \equiv 1 \pmod{n_1} \).</li>
+                    <li><strong>Final Formula:</strong> \( x = \sum a_i N_i y_i \pmod N \).</li>
+                </ol>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>
