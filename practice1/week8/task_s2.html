@@ -699,151 +699,445 @@
                         <path d="M15 19l-7-7 7-7" />
                     </svg></button>
             </div>
-
-            <!-- Problem 15 -->
-            <div class="row">
-                <div class="slide">
-                    <div class="slide-content">
-                        <h3>Problem 15</h3>
-                        <p>Find the degree sequence of the given graph.</p>
-                        <p><em>(Placeholder)</em></p>
-                    </div>
-                    <button class="nav-arrow arrow-right" onclick="navigateGrid(5, 1)"><svg viewBox="0 0 24 24">
-                            <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
-                        </svg></button>
-                    <button class="nav-arrow arrow-down" onclick="scrollToRow(6)"><svg viewBox="0 0 24 24">
-                            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-                        </svg></button>
-                </div>
-                <div class="slide solution-slide">
-                    <div class="slide-content">
-                        <p>List degrees in non-increasing order: \( d_1, d_2, \dots d_n \).</p>
-                    </div>
-                    <button class="nav-arrow arrow-left" onclick="navigateGrid(5, 0)"><svg viewBox="0 0 24 24">
-                            <path d="M15 19l-7-7 7-7" />
-                        </svg></button>
-                </div>
-            </div>
-
-            <!-- Problem 17 -->
-            <div class="row">
-                <div class="slide">
-                    <div class="slide-content">
-                        <h3>Problem 17</h3>
-                        <p><strong>Hypercubes:</strong> Draw \( Q_3 \).</p>
-                    </div>
-                    <button class="nav-arrow arrow-right" onclick="navigateGrid(6, 1)"><svg viewBox="0 0 24 24">
-                            <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
-                        </svg></button>
-                    <button class="nav-arrow arrow-down" onclick="scrollToRow(7)"><svg viewBox="0 0 24 24">
-                            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-                        </svg></button>
-                </div>
-                <div class="slide solution-slide">
-                    <div class="slide-content">
-                        <p>\( Q_3 \) (3-Cube) has \( 2^3 = 8 \) vertices.</p>
-                        <p>Each vertex is a binary string of length 3 (000 to 111).</p>
-                        <p>Connect vertices that differ by exactly 1 bit.</p>
-                    </div>
-                    <button class="nav-arrow arrow-left" onclick="navigateGrid(6, 0)"><svg viewBox="0 0 24 24">
-                            <path d="M15 19l-7-7 7-7" />
-                        </svg></button>
-                </div>
-            </div>
-
-            <!-- Problem 18 -->
-            <div class="row">
-                <div class="slide">
-                    <div class="slide-content">
-                        <h3>Problem 18</h3>
-                        <p>Subgraphs problem.</p>
-                        <p><em>(Placeholder)</em></p>
-                    </div>
-                    <button class="nav-arrow arrow-right" onclick="navigateGrid(7, 1)"><svg viewBox="0 0 24 24">
-                            <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
-                        </svg></button>
-                </div>
-                <div class="slide solution-slide">
-                    <div class="slide-content">
-                        <p>Check if edges in \( H \) are subset of \( E(G) \) and vertices in \( H \) are subset of
-                            \( V(G)
-                            \).</p>
-                    </div>
-                    <button class="nav-arrow arrow-left" onclick="navigateGrid(7, 0)"><svg viewBox="0 0 24 24">
-                            <path d="M15 19l-7-7 7-7" />
-                        </svg></button>
-                </div>
-            </div>
-
         </div>
-        <script src="script.js"></script>
-        <script>
-            // --- Problem 1 Interactive Logic ---
-            let p1Step = 1;
-            const totalP1Steps = 6;
-            let p1Renderer = null;
 
-            // Vertices Data (Fixed Positions)
-            const p1Nodes = [
-                { id: 'v1', x: 200, y: 50 },
-                { id: 'v2', x: 50, y: 150 },
-                { id: 'v3', x: 150, y: 200 },
-                { id: 'v4', x: 300, y: 150 },
-                { id: 'v5', x: 250, y: 250 }
-            ];
+        <!-- Problem 15 -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Problem 15</h3>
+                    <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+                        <img src="p15_task.jpg" alt="Problem 15 Graphs"
+                            style="max-width: 100%; max-height: 50vh; border-radius: 8px; border: 2px solid var(--glass-border); box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+                        <!-- <div style="flex: 1; min-width: 300px;">
+                            <p style="font-size: 1.1em; line-height: 1.6;">
+                                For each pair of graphs shown on the left, determine whether the graph on the left is a
+                                <strong>subgraph</strong> of the graph on the right.
+                            </p>
+                            <ul style="font-size: 1.1em; margin-top: 1rem;">
+                                <li><strong>(a)</strong> Square vs House-shape.</li>
+                                <li><strong>(b)</strong> Square+Diagonal vs ZigZag Grid.</li>
+                                <li><strong>(c)</strong> M-shape vs Oval.</li>
+                                <li><strong>(d)</strong> U-shape vs Wheel.</li>
+                            </ul>
+                        </div> -->
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(5, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(6)"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content"
+                    style="display: flex; flex-direction: column; height: 75vh; max-width: 1000px; width: 90%; margin: 0 auto; padding: 2rem;">
 
-            // Edges for each step (Cumulative)
-            function getP1Edges(step) {
-                let edges = [];
-                if (step >= 2) edges.push({ source: 'v4', target: 'v5' }); // Step 2: (v4,v5)
-                if (step >= 3) { // Step 3: (v1,v2), (v1,v3), (v1,v4)
-                    edges.push({ source: 'v1', target: 'v2' });
-                    edges.push({ source: 'v1', target: 'v3' });
-                    edges.push({ source: 'v1', target: 'v4' });
-                }
-                if (step >= 4) edges.push({ source: 'v3', target: 'v5' }); // Step 4: (v3,v5)
-                return edges;
+                    <!-- Content Area (Grid) -->
+                    <div
+                        style="display: grid; grid-template-columns: 1fr; gap: 2rem; flex: 1; overflow: hidden; min-height: 0;">
+                        <!-- Left: Steps -->
+                        <div
+                            style="text-align: left; overflow-y: auto; padding-right: 1rem; position: relative; display: flex; flex-direction: column;">
+
+                            <!-- Progress Bar -->
+                            <div class="progress-bar">
+                                <div class="step-circle active" id="sc-p15-1">1</div>
+                                <div class="step-circle" id="sc-p15-2">2</div>
+                                <div class="step-circle" id="sc-p15-3">3</div>
+                                <div class="step-circle" id="sc-p15-4">4</div>
+                                <div class="step-circle" id="sc-p15-5">5</div>
+                                <div class="step-circle" id="sc-p15-6">6</div>
+                                <div class="step-circle" id="sc-p15-7">7</div>
+                            </div>
+
+                            <h3>Step-by-Step Solution</h3>
+
+                            <!-- Step 1 -->
+                            <div class="p15-step" id="p15-step-1">
+                                <h4 style="color: var(--highlight);">Step 1: Definition</h4>
+                                <p>A graph \( H \) is a <strong>subgraph</strong> of \( G \) if:</p>
+                                <ul>
+                                    <li>Every vertex of \( H \) corresponds to a vertex in \( G \).</li>
+                                    <li>Every edge of \( H \) exists in \( G \) between these vertices.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="p15-step hidden" id="p15-step-2">
+                                <h4 style="color: var(--highlight);">Step 2: Case (a)</h4>
+                                <p><strong>Left:</strong> A 4-cycle (Square). 4 vertices, degree 2, closed loop.</p>
+                                <p><strong>Right:</strong> Graph containing only triangles (3-cycles).</p>
+                                <p><strong>Result:</strong> A subgraph must preserve edges. The right graph has no set
+                                    of 4 vertices forming a square.</p>
+                                <p style="color: var(--error);">❌ No, not a subgraph.</p>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="p15-step hidden" id="p15-step-3">
+                                <h4 style="color: var(--highlight);">Step 3: Case (b)</h4>
+                                <p><strong>Left:</strong> Square with one diagonal (4-cycle + 1 chord).</p>
+                                <p><strong>Right:</strong> Graph with overlapping "M" shapes.</p>
+                                <p><strong>Result:</strong> Although edges cross, there is no set of 4 vertices that
+                                    form a square with exactly one diagonal.</p>
+                                <p style="color: var(--error);">❌ No, not a subgraph.</p>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div class="p15-step hidden" id="p15-step-4">
+                                <h4 style="color: var(--highlight);">Step 4: Case (c)</h4>
+                                <p><strong>Left:</strong> 5 vertices, "M-like" crossed structure.</p>
+                                <p><strong>Right:</strong> Symmetric oval graph with crossing diagonals.</p>
+                                <p><strong>Result:</strong> By choosing the top, bottom, and side vertices correctly, we
+                                    can reproduce the exact crossing pattern.</p>
+                                <p style="color: var(--success);">✅ Yes, it is a subgraph.</p>
+                            </div>
+
+                            <!-- Step 5 -->
+                            <div class="p15-step hidden" id="p15-step-5">
+                                <h4 style="color: var(--highlight);">Step 5: Case (d)</h4>
+                                <p><strong>Left:</strong> 6 vertices, "W-shaped" path + vertical edges.</p>
+                                <p><strong>Right:</strong> Dense central graph (Wheel-like).</p>
+                                <p><strong>Result:</strong> The specific "W" connection pattern of the left graph does
+                                    not appear verbatim inside the right graph due to the central vertex constraints.
+                                </p>
+                                <p style="color: var(--error);">❌ No, not a subgraph.</p>
+                            </div>
+
+                            <!-- Step 6 -->
+                            <div class="p15-step hidden" id="p15-step-6">
+                                <h4 style="color: var(--success);">Step 6: Summary</h4>
+                                <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
+                                    <tr style="border-bottom: 1px solid var(--text-muted);">
+                                        <th style="padding: 0.5rem; text-align: left;">Case</th>
+                                        <th style="padding: 0.5rem; text-align: left;">Subgraph?</th>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0.5rem;">(a) Square</td>
+                                        <td style="color: var(--error);">No</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0.5rem;">(b) Square+Diag</td>
+                                        <td style="color: var(--error);">No</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0.5rem;">(c) M-shape</td>
+                                        <td style="color: var(--success);">Yes</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="padding: 0.5rem;">(d) W-shape</td>
+                                        <td style="color: var(--error);">No</td>
+                                    </tr>
+                                </table>
+                            </div>
+
+                            <!-- Step 7 -->
+                            <div class="p15-step hidden" id="p15-step-7">
+                                <h4 style="color: var(--highlight);">Teaching Tips</h4>
+                                <p>1. Ignore size difference; focus on finding the <em>pattern</em> inside.</p>
+                                <p>2. Match <strong>degrees</strong> first.</p>
+                                <p>3. If any edge is missing in the target, it fails.</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div
+                        style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center;">
+                        <button class="btn-secondary hidden" onclick="prevStepP15()" id="p15-back-btn">⬅
+                            Back</button>
+                        <div style="margin-left: auto;">
+                            <button class="btn-primary" onclick="nextStepP15()" id="p15-next-btn">Next Step
+                                ➜</button>
+                            <button class="btn-secondary hidden" onclick="resetP15()" id="p15-reset-btn">Reset
+                                Solution</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Back Arrow out of slide content -->
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(5, 0)"><svg viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Problem 17 -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Problem 17</h3>
+                    <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+                        <img src="p17_task.jpg" alt="Problem 17 Graphs"
+                            style="max-width: 100%; max-height: 50vh; border-radius: 8px; border: 2px solid var(--glass-border); box-shadow: 0 4px 6px rgba(0,0,0,0.3);">
+                    </div>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(6, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+                <button class="nav-arrow arrow-down" onclick="scrollToRow(7)"><svg viewBox="0 0 24 24">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content"
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 75vh; max-width: 1000px; width: 90%; margin: 0 auto; padding: 2rem; text-align: center;">
+                    <h2 style="font-size: 3rem; color: var(--highlight);">Ask the teacher</h2>
+                    <p style="font-size: 1.2rem; margin-top: 1rem; color: var(--text-muted);">This solution is best
+                        discussed in class.</p>
+                </div>
+                <!-- Back Button to Task Slide -->
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(6, 0)"><svg viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+        <!-- Problem 18 -->
+        <div class="row">
+            <div class="slide">
+                <div class="slide-content">
+                    <h3>Problem 18</h3>
+                    <p style="font-size: 1rem; margin-bottom: 0.5rem;">For each of the following sequences, determine
+                        whether there exists a graph whose degree sequence is the one specified.
+                        In each case, either draw a graph or explain why no graph exists.
+                    </p>
+                    <ul style="font-size: 0.95rem; columns: 2; list-style: none; padding: 0;">
+                        <li style="margin-bottom: 0.5rem;"><strong>(a)</strong> 4, 4, 4, 3, 2</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>(b)</strong> 100, 99, ..., 3, 2, 2, 2</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>(c)</strong> 5, 5, 4, 3, 2, 1</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>(d)</strong> 1, 1, 1, 1, 1, 1</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>(e)</strong> 5, 4, 3, 2, 1</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>(f)</strong> 5, 4, 3, 2, 1, 1</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>(g)</strong> 6, 6, 4, 2, 2, 2, 1, 1</li>
+                        <li style="margin-bottom: 0.5rem;"><strong>(h)</strong> 4, 3, 2, 2, 1</li>
+                    </ul>
+                </div>
+                <button class="nav-arrow arrow-right" onclick="navigateGrid(7, 1)" title="Solution"><svg
+                        viewBox="0 0 24 24">
+                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                    </svg></button>
+            </div>
+            <div class="slide solution-slide">
+                <div class="slide-content"
+                    style="display: grid; grid-template-columns: 200px 1fr; gap: 2rem; height: 75vh; width: 95%; max-width: 1100px; padding: 2rem;">
+
+                    <!-- Left: Selector -->
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem; overflow-y: auto;">
+                        <h4 style="margin-bottom: 0.5rem; color: var(--text-muted);">Select Case:</h4>
+                        <button class="btn-secondary p18-btn active" onclick="updateP18UI('a')"
+                            id="p18-btn-a">(a)</button>
+                        <button class="btn-secondary p18-btn" onclick="updateP18UI('b')" id="p18-btn-b">(b)</button>
+                        <button class="btn-secondary p18-btn" onclick="updateP18UI('c')" id="p18-btn-c">(c)</button>
+                        <button class="btn-secondary p18-btn" onclick="updateP18UI('d')" id="p18-btn-d">(d)</button>
+                        <button class="btn-secondary p18-btn" onclick="updateP18UI('e')" id="p18-btn-e">(e)</button>
+                        <button class="btn-secondary p18-btn" onclick="updateP18UI('f')" id="p18-btn-f">(f)</button>
+                        <button class="btn-secondary p18-btn" onclick="updateP18UI('g')" id="p18-btn-g">(g)</button>
+                        <button class="btn-secondary p18-btn" onclick="updateP18UI('h')" id="p18-btn-h">(h)</button>
+                    </div>
+
+                    <!-- Right: Details -->
+                    <div
+                        style="background: rgba(255,255,255,0.05); border-radius: 12px; padding: 2rem; border: 1px solid var(--glass-border); display: flex; flex-direction: column; justify-content: center;">
+                        <h3 id="p18-seq-title" style="color: var(--highlight); margin-bottom: 1rem;">Sequence (a)</h3>
+                        <p id="p18-seq-data" style="font-family: monospace; font-size: 1.2rem; margin-bottom: 2rem;">4,
+                            4, 4, 3, 2</p>
+
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                            <!-- Check 1 -->
+                            <div>
+                                <h4 style="color: var(--text-muted); font-size: 0.9rem;">Check 1: Sum of Degrees</h4>
+                                <p id="p18-chk1" style="font-size: 1.1rem; margin-top: 0.5rem;">Sum = 17 (Odd)</p>
+                            </div>
+                            <!-- Check 2 -->
+                            <div>
+                                <h4 style="color: var(--text-muted); font-size: 0.9rem;">Check 2: Max Degree</h4>
+                                <p id="p18-chk2" style="font-size: 1.1rem; margin-top: 0.5rem;">Max = 4 (n=5). OK.</p>
+                            </div>
+                        </div>
+
+                        <div
+                            style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--glass-border); text-align: center;">
+                            <h2 id="p18-result" style="color: var(--error);">❌ No Graph Exists</h2>
+                            <p id="p18-reason" style="margin-top: 1rem; color: var(--text-muted);">Sum of degrees is
+                                odd.</p>
+                        </div>
+                    </div>
+
+                </div>
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(7, 0)"><svg viewBox="0 0 24 24">
+                        <path d="M15 19l-7-7 7-7" />
+                    </svg></button>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+    <script>
+        // --- Problem 1 Interactive Logic ---
+        let p1Step = 1;
+        const totalP1Steps = 6;
+        let p1Renderer = null;
+
+        // Vertices Data (Fixed Positions)
+        const p1Nodes = [
+            { id: 'v1', x: 200, y: 50 },
+            { id: 'v2', x: 50, y: 150 },
+            { id: 'v3', x: 150, y: 200 },
+            { id: 'v4', x: 300, y: 150 },
+            { id: 'v5', x: 250, y: 250 }
+        ];
+
+        // Edges for each step (Cumulative)
+        function getP1Edges(step) {
+            let edges = [];
+            if (step >= 2) edges.push({ source: 'v4', target: 'v5' }); // Step 2: (v4,v5)
+            if (step >= 3) { // Step 3: (v1,v2), (v1,v3), (v1,v4)
+                edges.push({ source: 'v1', target: 'v2' });
+                edges.push({ source: 'v1', target: 'v3' });
+                edges.push({ source: 'v1', target: 'v4' });
             }
+            if (step >= 4) edges.push({ source: 'v3', target: 'v5' }); // Step 4: (v3,v5)
+            return edges;
+        }
 
-            // Centralized UI Update
-            function updateP1UI() {
-                // 1. Text Steps Visibility
-                document.querySelectorAll('.p1-step').forEach(el => el.classList.add('hidden'));
-                const currentStepEl = document.getElementById(`p1-step-${p1Step}`);
-                if (currentStepEl) currentStepEl.classList.remove('hidden');
+        // Centralized UI Update
+        function updateP1UI() {
+            // 1. Text Steps Visibility
+            document.querySelectorAll('.p1-step').forEach(el => el.classList.add('hidden'));
+            const currentStepEl = document.getElementById(`p1-step-${p1Step}`);
+            if (currentStepEl) currentStepEl.classList.remove('hidden');
 
-                // 2. Progress Bar
-                for (let i = 1; i <= totalP1Steps; i++) {
-                    const c = document.getElementById(`sc-${i}`);
-                    if (c) {
-                        c.classList.remove('active', 'completed');
-                        c.innerHTML = i; // Reset content
+            // 2. Progress Bar
+            for (let i = 1; i <= totalP1Steps; i++) {
+                const c = document.getElementById(`sc-${i}`);
+                if (c) {
+                    c.classList.remove('active', 'completed');
+                    c.innerHTML = i; // Reset content
 
-                        if (i < p1Step) {
-                            c.classList.add('completed');
-                            c.innerHTML = '✔';
-                        } else if (i === p1Step) {
-                            c.classList.add('active');
-                        }
+                    if (i < p1Step) {
+                        c.classList.add('completed');
+                        c.innerHTML = '✔';
+                    } else if (i === p1Step) {
+                        c.classList.add('active');
                     }
                 }
+            }
 
-                // 3. Graph
-                if (p1Renderer) {
-                    p1Renderer.draw(p1Nodes, getP1Edges(p1Step), { nodeRadius: 18 });
+            // 3. Graph
+            if (p1Renderer) {
+                p1Renderer.draw(p1Nodes, getP1Edges(p1Step), { nodeRadius: 18 });
+            }
+
+            // 4. Buttons State
+            const btnNext = document.getElementById('p1-next-btn');
+            const btnBack = document.getElementById('p1-back-btn');
+            const btnReset = document.getElementById('p1-reset-btn');
+
+            // Back Button
+            if (p1Step > 1) btnBack.classList.remove('hidden');
+            else btnBack.classList.add('hidden');
+
+            // Next / Reset Buttons
+            if (p1Step === totalP1Steps) {
+                btnNext.classList.add('hidden');
+                btnReset.classList.remove('hidden');
+            } else {
+                btnNext.classList.remove('hidden');
+                btnReset.classList.add('hidden');
+            }
+        }
+
+        window.nextStepP1 = function () {
+            if (p1Step < totalP1Steps) {
+                p1Step++;
+                updateP1UI();
+            }
+        };
+
+        window.prevStepP1 = function () {
+            if (p1Step > 1) {
+                p1Step--;
+                updateP1UI();
+            }
+        };
+
+        window.resetP1 = function () {
+            p1Step = 1;
+            updateP1UI();
+        };
+
+        // --- Problem 3 Interactive Logic ---
+        let p3Step = 1;
+        const totalP3Steps = 6;
+        let p3Renderer = null;
+
+        const p3Nodes = [
+            { id: 'v1', x: 100, y: 50 },
+            { id: 'v2', x: 300, y: 50 },
+            { id: 'v3', x: 300, y: 250 },
+            { id: 'v4', x: 100, y: 250 }
+        ];
+
+        function getP3Edges(step) {
+            // Edges appear from Step 3 onwards (when we define the graph)
+            if (step >= 3) {
+                return [
+                    { source: 'v1', target: 'v2' },
+                    { source: 'v2', target: 'v3' },
+                    { source: 'v3', target: 'v4' },
+                    { source: 'v4', target: 'v1' }
+                ];
+            }
+            return [];
+        }
+
+        function updateP3UI() {
+            // 1. Text Steps Visibility
+            document.querySelectorAll('.p3-step').forEach(el => el.classList.add('hidden'));
+            const s = document.getElementById(`p3-step-${p3Step}`);
+            if (s) s.classList.remove('hidden');
+
+            // 2. Progress Bar
+            for (let i = 1; i <= totalP3Steps; i++) {
+                const c = document.getElementById(`sc-p3-${i}`);
+                if (c) {
+                    c.classList.remove('active', 'completed');
+                    c.innerHTML = i;
+                    if (i < p3Step) { c.classList.add('completed'); c.innerHTML = '✔'; }
+                    else if (i === p3Step) { c.classList.add('active'); }
                 }
+            }
 
-                // 4. Buttons State
-                const btnNext = document.getElementById('p1-next-btn');
-                const btnBack = document.getElementById('p1-back-btn');
-                const btnReset = document.getElementById('p1-reset-btn');
+            // 3. Graph
+            if (p3Renderer) {
+                // In Step 1 & 2, show NO graph? Or just nodes?
+                // User text Step 3 says "Define Graph". Step 2 says "Propose Example".
+                // Let's show nodes at Step 2. Empty at Step 1.
+                let nodesToShow = [];
+                let edgesToShow = [];
 
-                // Back Button
-                if (p1Step > 1) btnBack.classList.remove('hidden');
+                if (p3Step >= 2) nodesToShow = p3Nodes;
+                edgesToShow = getP3Edges(p3Step);
+
+                p3Renderer.draw(nodesToShow, edgesToShow, { nodeRadius: 18 });
+            }
+
+            // 4. Buttons
+            const btnNext = document.getElementById('p3-next-btn');
+            const btnBack = document.getElementById('p3-back-btn');
+            const btnReset = document.getElementById('p3-reset-btn');
+
+            if (btnBack) {
+                if (p3Step > 1) btnBack.classList.remove('hidden');
                 else btnBack.classList.add('hidden');
+            }
 
-                // Next / Reset Buttons
-                if (p1Step === totalP1Steps) {
+            if (btnNext && btnReset) {
+                if (p3Step === totalP3Steps) {
                     btnNext.classList.add('hidden');
                     btnReset.classList.remove('hidden');
                 } else {
@@ -851,292 +1145,362 @@
                     btnReset.classList.add('hidden');
                 }
             }
+        }
 
-            window.nextStepP1 = function () {
-                if (p1Step < totalP1Steps) {
-                    p1Step++;
-                    updateP1UI();
-                }
-            };
+        window.nextStepP3 = function () {
+            if (p3Step < totalP3Steps) { p3Step++; updateP3UI(); }
+        };
+        window.prevStepP3 = function () {
+            if (p3Step > 1) { p3Step--; updateP3UI(); }
+        };
+        window.resetP3 = function () {
+            p3Step = 1; updateP3UI();
+        };
 
-            window.prevStepP1 = function () {
-                if (p1Step > 1) {
-                    p1Step--;
-                    updateP1UI();
-                }
-            };
+        // --- Problem 5 Interactive Logic ---
+        let p5Step = 1;
+        const totalP5Steps = 5;
+        let p5Renderer = null;
 
-            window.resetP1 = function () {
-                p1Step = 1;
-                updateP1UI();
-            };
-
-            // --- Problem 3 Interactive Logic ---
-            let p3Step = 1;
-            const totalP3Steps = 6;
-            let p3Renderer = null;
-
-            const p3Nodes = [
-                { id: 'v1', x: 100, y: 50 },
-                { id: 'v2', x: 300, y: 50 },
-                { id: 'v3', x: 300, y: 250 },
-                { id: 'v4', x: 100, y: 250 }
-            ];
-
-            function getP3Edges(step) {
-                // Edges appear from Step 3 onwards (when we define the graph)
-                if (step >= 3) {
-                    return [
-                        { source: 'v1', target: 'v2' },
-                        { source: 'v2', target: 'v3' },
-                        { source: 'v3', target: 'v4' },
-                        { source: 'v4', target: 'v1' }
-                    ];
-                }
-                return [];
-            }
-
-            function updateP3UI() {
-                // 1. Text Steps Visibility
-                document.querySelectorAll('.p3-step').forEach(el => el.classList.add('hidden'));
-                const s = document.getElementById(`p3-step-${p3Step}`);
-                if (s) s.classList.remove('hidden');
-
-                // 2. Progress Bar
-                for (let i = 1; i <= totalP3Steps; i++) {
-                    const c = document.getElementById(`sc-p3-${i}`);
-                    if (c) {
-                        c.classList.remove('active', 'completed');
-                        c.innerHTML = i;
-                        if (i < p3Step) { c.classList.add('completed'); c.innerHTML = '✔'; }
-                        else if (i === p3Step) { c.classList.add('active'); }
-                    }
-                }
-
-                // 3. Graph
-                if (p3Renderer) {
-                    // In Step 1 & 2, show NO graph? Or just nodes?
-                    // User text Step 3 says "Define Graph". Step 2 says "Propose Example".
-                    // Let's show nodes at Step 2. Empty at Step 1.
-                    let nodesToShow = [];
-                    let edgesToShow = [];
-
-                    if (p3Step >= 2) nodesToShow = p3Nodes;
-                    edgesToShow = getP3Edges(p3Step);
-
-                    p3Renderer.draw(nodesToShow, edgesToShow, { nodeRadius: 18 });
-                }
-
-                // 4. Buttons
-                const btnNext = document.getElementById('p3-next-btn');
-                const btnBack = document.getElementById('p3-back-btn');
-                const btnReset = document.getElementById('p3-reset-btn');
-
-                if (btnBack) {
-                    if (p3Step > 1) btnBack.classList.remove('hidden');
-                    else btnBack.classList.add('hidden');
-                }
-
-                if (btnNext && btnReset) {
-                    if (p3Step === totalP3Steps) {
-                        btnNext.classList.add('hidden');
-                        btnReset.classList.remove('hidden');
-                    } else {
-                        btnNext.classList.remove('hidden');
-                        btnReset.classList.add('hidden');
-                    }
-                }
-            }
-
-            window.nextStepP3 = function () {
-                if (p3Step < totalP3Steps) { p3Step++; updateP3UI(); }
-            };
-            window.prevStepP3 = function () {
-                if (p3Step > 1) { p3Step--; updateP3UI(); }
-            };
-            window.resetP3 = function () {
-                p3Step = 1; updateP3UI();
-            };
-
-            // --- Problem 5 Interactive Logic ---
-            let p5Step = 1;
-            const totalP5Steps = 5;
-            let p5Renderer = null;
-
-            // Pentagonal Layout for K5
-            const p5Nodes = [];
-            for (let i = 0; i < 5; i++) {
-                // Center (200, 150), Radius ~100
-                const angle = (i * 2 * Math.PI / 5) - Math.PI / 2; // Start at top
-                p5Nodes.push({
-                    id: `v${i + 1}`,
-                    x: 200 + 100 * Math.cos(angle),
-                    y: 150 + 100 * Math.sin(angle)
-                });
-            }
-
-            // Complete Graph Edges (All pairs)
-            const p5Edges = [];
-            for (let i = 0; i < 5; i++) {
-                for (let j = i + 1; j < 5; j++) {
-                    p5Edges.push({ source: `v${i + 1}`, target: `v${j + 1}` });
-                }
-            }
-
-            function updateP5UI() {
-                // 1. Text Steps Visibility
-                document.querySelectorAll('.p5-step').forEach(el => el.classList.add('hidden'));
-                const s = document.getElementById(`p5-step-${p5Step}`);
-                if (s) s.classList.remove('hidden');
-
-                // 2. Progress Bar
-                for (let i = 1; i <= totalP5Steps; i++) {
-                    const c = document.getElementById(`sc-p5-${i}`);
-                    if (c) {
-                        c.classList.remove('active', 'completed');
-                        c.innerHTML = i;
-                        if (i < p5Step) { c.classList.add('completed'); c.innerHTML = '✔'; }
-                        else if (i === p5Step) { c.classList.add('active'); }
-                    }
-                }
-
-                // 3. Graph
-                if (p5Renderer) {
-                    // Show nodes always. Show edges gradually?
-                    // Step 1: Just nodes
-                    // Step 2,3: Just nodes (Concept)
-                    // Step 4: Show Edges (Description)
-                    let edgesToShow = [];
-                    if (p5Step >= 4) edgesToShow = p5Edges;
-
-                    p5Renderer.draw(p5Nodes, edgesToShow, { nodeRadius: 15 });
-                }
-
-                // 4. Buttons
-                const btnNext = document.getElementById('p5-next-btn');
-                const btnBack = document.getElementById('p5-back-btn');
-                const btnReset = document.getElementById('p5-reset-btn');
-
-                if (btnBack) {
-                    if (p5Step > 1) btnBack.classList.remove('hidden');
-                    else btnBack.classList.add('hidden');
-                }
-
-                if (btnNext && btnReset) {
-                    if (p5Step === totalP5Steps) {
-                        btnNext.classList.add('hidden');
-                        btnReset.classList.remove('hidden');
-                    } else {
-                        btnNext.classList.remove('hidden');
-                        btnReset.classList.add('hidden');
-                    }
-                }
-            }
-
-            window.nextStepP5 = function () {
-                if (p5Step < totalP5Steps) { p5Step++; updateP5UI(); }
-            };
-            window.prevStepP5 = function () {
-                if (p5Step > 1) { p5Step--; updateP5UI(); }
-            };
-            window.resetP5 = function () {
-                p5Step = 1; updateP5UI();
-            };
-
-            // --- Problem 12 Interactive Logic ---
-            let p12Step = 1;
-            const totalP12Steps = 6;
-
-            function updateP12UI() {
-                // 1. Text Steps Visibility
-                document.querySelectorAll('.p12-step').forEach(el => el.classList.add('hidden'));
-                const s = document.getElementById(`p12-step-${p12Step}`);
-                if (s) s.classList.remove('hidden');
-
-                // 2. Progress Bar
-                for (let i = 1; i <= totalP12Steps; i++) {
-                    const c = document.getElementById(`sc-p12-${i}`);
-                    if (c) {
-                        c.classList.remove('active', 'completed');
-                        c.innerHTML = i;
-                        if (i < p12Step) { c.classList.add('completed'); c.innerHTML = '✔'; }
-                        else if (i === p12Step) { c.classList.add('active'); }
-                    }
-                }
-
-                // 3. Math Board Update
-                const board = document.getElementById('p12-equation-display');
-                if (board) {
-                    let content = '';
-                    if (p12Step === 1) content = "Total Degrees = 56";
-                    else if (p12Step === 2) content = "x + y = 12<br>3x + 4y = 56";
-                    else if (p12Step === 3) content = "y = 20<br><span style='color:#ff4444'>Impossible (20 > 12)</span>";
-                    else if (p12Step === 4) content = "x + y = 12<br>3x + 6y = 56";
-                    else if (p12Step === 5) content = "y = 20/3<br><span style='color:#ff4444'>Not Integer</span>";
-                    else if (p12Step === 6) content = "(a) No<br>(b) No";
-
-                    board.innerHTML = content;
-                }
-
-                // 4. Buttons
-                const btnNext = document.getElementById('p12-next-btn');
-                const btnBack = document.getElementById('p12-back-btn');
-                const btnReset = document.getElementById('p12-reset-btn');
-
-                if (btnBack) {
-                    if (p12Step > 1) btnBack.classList.remove('hidden');
-                    else btnBack.classList.add('hidden');
-                }
-
-                if (btnNext && btnReset) {
-                    if (p12Step === totalP12Steps) {
-                        btnNext.classList.add('hidden');
-                        btnReset.classList.remove('hidden');
-                    } else {
-                        btnNext.classList.remove('hidden');
-                        btnReset.classList.add('hidden');
-                    }
-                }
-            }
-
-            window.nextStepP12 = function () {
-                if (p12Step < totalP12Steps) { p12Step++; updateP12UI(); }
-            };
-            window.prevStepP12 = function () {
-                if (p12Step > 1) { p12Step--; updateP12UI(); }
-            };
-            window.resetP12 = function () {
-                p12Step = 1; updateP12UI();
-            };
-
-            // Initialize Everything
-            window.addEventListener('load', () => {
-                console.log("Initializing Week 8 Graphics...");
-
-                if (window.GraphRenderer) {
-                    // Init P1
-                    p1Renderer = new GraphRenderer('p1-graph');
-                    if (p1Renderer) {
-                        p1Renderer.draw(p1Nodes, [], { nodeRadius: 18 });
-                    }
-
-                    // Init P3
-                    p3Renderer = new GraphRenderer('p3-graph');
-                    if (p3Renderer) {
-                        updateP3UI();
-                    }
-
-                    // Init P5
-                    p5Renderer = new GraphRenderer('p5-graph');
-                    if (p5Renderer) {
-                        updateP5UI();
-                    }
-
-                    // Init P12 (No Graph, just UI)
-                    updateP12UI();
-                }
+        // Pentagonal Layout for K5
+        const p5Nodes = [];
+        for (let i = 0; i < 5; i++) {
+            // Center (200, 150), Radius ~100
+            const angle = (i * 2 * Math.PI / 5) - Math.PI / 2; // Start at top
+            p5Nodes.push({
+                id: `v${i + 1}`,
+                x: 200 + 100 * Math.cos(angle),
+                y: 150 + 100 * Math.sin(angle)
             });
-        </script>
+        }
+
+        // Complete Graph Edges (All pairs)
+        const p5Edges = [];
+        for (let i = 0; i < 5; i++) {
+            for (let j = i + 1; j < 5; j++) {
+                p5Edges.push({ source: `v${i + 1}`, target: `v${j + 1}` });
+            }
+        }
+
+        function updateP5UI() {
+            // 1. Text Steps Visibility
+            document.querySelectorAll('.p5-step').forEach(el => el.classList.add('hidden'));
+            const s = document.getElementById(`p5-step-${p5Step}`);
+            if (s) s.classList.remove('hidden');
+
+            // 2. Progress Bar
+            for (let i = 1; i <= totalP5Steps; i++) {
+                const c = document.getElementById(`sc-p5-${i}`);
+                if (c) {
+                    c.classList.remove('active', 'completed');
+                    c.innerHTML = i;
+                    if (i < p5Step) { c.classList.add('completed'); c.innerHTML = '✔'; }
+                    else if (i === p5Step) { c.classList.add('active'); }
+                }
+            }
+
+            // 3. Graph
+            if (p5Renderer) {
+                // Show nodes always. Show edges gradually?
+                // Step 1: Just nodes
+                // Step 2,3: Just nodes (Concept)
+                // Step 4: Show Edges (Description)
+                let edgesToShow = [];
+                if (p5Step >= 4) edgesToShow = p5Edges;
+
+                p5Renderer.draw(p5Nodes, edgesToShow, { nodeRadius: 15 });
+            }
+
+            // 4. Buttons
+            const btnNext = document.getElementById('p5-next-btn');
+            const btnBack = document.getElementById('p5-back-btn');
+            const btnReset = document.getElementById('p5-reset-btn');
+
+            if (btnBack) {
+                if (p5Step > 1) btnBack.classList.remove('hidden');
+                else btnBack.classList.add('hidden');
+            }
+
+            if (btnNext && btnReset) {
+                if (p5Step === totalP5Steps) {
+                    btnNext.classList.add('hidden');
+                    btnReset.classList.remove('hidden');
+                } else {
+                    btnNext.classList.remove('hidden');
+                    btnReset.classList.add('hidden');
+                }
+            }
+        }
+
+        window.nextStepP5 = function () {
+            if (p5Step < totalP5Steps) { p5Step++; updateP5UI(); }
+        };
+        window.prevStepP5 = function () {
+            if (p5Step > 1) { p5Step--; updateP5UI(); }
+        };
+        window.resetP5 = function () {
+            p5Step = 1; updateP5UI();
+        };
+
+        // --- Problem 12 Interactive Logic ---
+        let p12Step = 1;
+        const totalP12Steps = 6;
+
+        function updateP12UI() {
+            // 1. Text Steps Visibility
+            document.querySelectorAll('.p12-step').forEach(el => el.classList.add('hidden'));
+            const s = document.getElementById(`p12-step-${p12Step}`);
+            if (s) s.classList.remove('hidden');
+
+            // 2. Progress Bar
+            for (let i = 1; i <= totalP12Steps; i++) {
+                const c = document.getElementById(`sc-p12-${i}`);
+                if (c) {
+                    c.classList.remove('active', 'completed');
+                    c.innerHTML = i;
+                    if (i < p12Step) { c.classList.add('completed'); c.innerHTML = '✔'; }
+                    else if (i === p12Step) { c.classList.add('active'); }
+                }
+            }
+
+            // 3. Math Board Update
+            const board = document.getElementById('p12-equation-display');
+            if (board) {
+                let content = '';
+                if (p12Step === 1) content = "Total Degrees = 56";
+                else if (p12Step === 2) content = "x + y = 12<br>3x + 4y = 56";
+                else if (p12Step === 3) content = "y = 20<br><span style='color:#ff4444'>Impossible (20 > 12)</span>";
+                else if (p12Step === 4) content = "x + y = 12<br>3x + 6y = 56";
+                else if (p12Step === 5) content = "y = 20/3<br><span style='color:#ff4444'>Not Integer</span>";
+                else if (p12Step === 6) content = "(a) No<br>(b) No";
+
+                board.innerHTML = content;
+            }
+
+            // 4. Buttons
+            const btnNext = document.getElementById('p12-next-btn');
+            const btnBack = document.getElementById('p12-back-btn');
+            const btnReset = document.getElementById('p12-reset-btn');
+
+            if (btnBack) {
+                if (p12Step > 1) btnBack.classList.remove('hidden');
+                else btnBack.classList.add('hidden');
+            }
+
+            if (btnNext && btnReset) {
+                if (p12Step === totalP12Steps) {
+                    btnNext.classList.add('hidden');
+                    btnReset.classList.remove('hidden');
+                } else {
+                    btnNext.classList.remove('hidden');
+                    btnReset.classList.add('hidden');
+                }
+            }
+        }
+
+        window.nextStepP12 = function () {
+            if (p12Step < totalP12Steps) { p12Step++; updateP12UI(); }
+        };
+        window.prevStepP12 = function () {
+            if (p12Step > 1) { p12Step--; updateP12UI(); }
+        };
+        window.resetP12 = function () {
+            p12Step = 1; updateP12UI();
+        };
+
+        // --- Problem 15 Interactive Logic ---
+        let p15Step = 1;
+        const totalP15Steps = 7;
+        let p15Renderer = null;
+
+        // --- Graph Data (Left vs Right) ---
+        // Scale note: Container is small (400x300).
+        // Left graph: x ~ 50-150. Right graph: x ~ 250-350.
+
+        function updateP15UI() {
+            // 1. Text Steps Visibility
+            document.querySelectorAll('.p15-step').forEach(el => el.classList.add('hidden'));
+            const s = document.getElementById(`p15-step-${p15Step}`);
+            if (s) s.classList.remove('hidden');
+
+            // 2. Progress Bar
+            for (let i = 1; i <= totalP15Steps; i++) {
+                const c = document.getElementById(`sc-p15-${i}`);
+                if (c) {
+                    c.classList.remove('active', 'completed');
+                    c.innerHTML = i;
+                    if (i < p15Step) { c.classList.add('completed'); c.innerHTML = '✔'; }
+                    else if (i === p15Step) { c.classList.add('active'); }
+                }
+            }
+
+            // 3. Buttons
+            const btnNext = document.getElementById('p15-next-btn');
+            const btnBack = document.getElementById('p15-back-btn');
+            const btnReset = document.getElementById('p15-reset-btn');
+
+            if (btnBack) {
+                if (p15Step > 1) btnBack.classList.remove('hidden');
+                else btnBack.classList.add('hidden');
+            }
+
+            if (btnNext && btnReset) {
+                if (p15Step === totalP15Steps) {
+                    btnNext.classList.add('hidden');
+                    btnReset.classList.remove('hidden');
+                } else {
+                    btnNext.classList.remove('hidden');
+                    btnReset.classList.add('hidden');
+                }
+            }
+        }
+
+        window.nextStepP15 = function () {
+            if (p15Step < totalP15Steps) { p15Step++; updateP15UI(); }
+        };
+        window.prevStepP15 = function () {
+            if (p15Step > 1) { p15Step--; updateP15UI(); }
+        };
+        window.resetP15 = function () {
+            p15Step = 1; updateP15UI();
+        };
+
+        // --- Problem 18 Interactive Logic ---
+        const p18Cases = {
+            'a': {
+                seq: "4, 4, 4, 3, 2",
+                chk1: "Sum = 17 (Odd)",
+                chk1Status: "fail",
+                chk2: "Max = 4 (n=5). Required Max <= 4. OK.",
+                chk2Status: "pass",
+                result: "❌ No Graph Exists",
+                reason: "Sum of degrees is odd (Handshaking Lemma violated)."
+            },
+            'b': {
+                seq: "100, 99, ..., 3, 2, 2, 2",
+                chk1: "Sum = Depends (Unknown length)",
+                chk1Status: "neutral",
+                chk2: "Max = 100. Required n >= 101.",
+                chk2Status: "fail",
+                result: "❌ No Graph Exists",
+                reason: "Contains degree 100, but max allowed is n-1. Inconsistent here."
+            },
+            'c': {
+                seq: "5, 5, 4, 3, 2, 1",
+                chk1: "Sum = 20 (Even)",
+                chk1Status: "pass",
+                chk2: "Max = 5 (n=6). Required Max <= 5. OK.",
+                chk2Status: "pass",
+                result: "✅ Graph Exists",
+                reason: "Sequence is graphical (Havel-Hakimi consistent)."
+            },
+            'd': {
+                seq: "1, 1, 1, 1, 1, 1",
+                chk1: "Sum = 6 (Even)",
+                chk1Status: "pass",
+                chk2: "Max = 1 (n=6). OK.",
+                chk2Status: "pass",
+                result: "✅ Graph Exists",
+                reason: "3 disjoint edges (Matching)."
+            },
+            'e': {
+                seq: "5, 4, 3, 2, 1",
+                chk1: "Sum = 15 (Odd)",
+                chk1Status: "fail",
+                chk2: "Max = 5 (n=5). Required Max <= 4.",
+                chk2Status: "fail",
+                result: "❌ No Graph Exists",
+                reason: "Sum is odd AND Max Degree > n-1."
+            },
+            'f': {
+                seq: "5, 4, 3, 2, 1, 1",
+                chk1: "Sum = 16 (Even)",
+                chk1Status: "pass",
+                chk2: "Max = 5 (n=6). Required Max <= 5. OK.",
+                chk2Status: "pass",
+                result: "✅ Graph Exists",
+                reason: "Sequence is graphical."
+            },
+            'g': {
+                seq: "6, 6, 4, 2, 2, 2, 1, 1",
+                chk1: "Sum = 24 (Even)",
+                chk1Status: "pass",
+                chk2: "Max = 6 (n=8). Required Max <= 7. OK.",
+                chk2Status: "pass",
+                result: "✅ Graph Exists",
+                reason: "Sequence is graphical."
+            },
+            'h': {
+                seq: "4, 3, 2, 2, 1",
+                chk1: "Sum = 12 (Even)",
+                chk1Status: "pass",
+                chk2: "Max = 4 (n=5). Required Max <= 4. OK.",
+                chk2Status: "pass",
+                result: "✅ Graph Exists",
+                reason: "Sequence is graphical."
+            }
+        };
+
+        function updateP18UI(caseKey) {
+            // Update Active Menu
+            document.querySelectorAll('.p18-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(`p18-btn-${caseKey}`).classList.add('active');
+
+            const data = p18Cases[caseKey];
+
+            // Update Text
+            document.getElementById('p18-seq-title').innerText = `Sequence (${caseKey})`;
+            document.getElementById('p18-seq-data').innerText = data.seq;
+
+            const c1 = document.getElementById('p18-chk1');
+            c1.innerText = data.chk1;
+            c1.style.color = data.chk1Status === 'fail' ? 'var(--error)' : (data.chk1Status === 'pass' ? 'var(--success)' : 'var(--text-muted)');
+
+            const c2 = document.getElementById('p18-chk2');
+            c2.innerText = data.chk2;
+            c2.style.color = data.chk2Status === 'fail' ? 'var(--error)' : (data.chk2Status === 'pass' ? 'var(--success)' : 'var(--text-muted)');
+
+            const res = document.getElementById('p18-result');
+            res.innerText = data.result;
+            res.style.color = data.result.includes('No') ? 'var(--error)' : 'var(--success)';
+
+            document.getElementById('p18-reason').innerText = data.reason;
+        }
+
+        // Initialize Everything
+        window.addEventListener('load', () => {
+            console.log("Initializing Week 8 Graphics...");
+
+            if (window.GraphRenderer) {
+                // Init P1
+                p1Renderer = new GraphRenderer('p1-graph');
+                if (p1Renderer) {
+                    p1Renderer.draw(p1Nodes, [], { nodeRadius: 18 });
+                }
+
+                // Init P3
+                p3Renderer = new GraphRenderer('p3-graph');
+                if (p3Renderer) {
+                    updateP3UI();
+                }
+
+                // Init P5
+                p5Renderer = new GraphRenderer('p5-graph');
+                if (p5Renderer) {
+                    updateP5UI();
+                }
+
+                // Init P12 (No Graph, just UI)
+                updateP12UI();
+
+                // Init P15 (UI Only)
+                updateP15UI();
+
+                // Init P18
+                updateP18UI('a');
+            }
+        });
+    </script>
 </body>
 
 </html>
