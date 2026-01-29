@@ -319,39 +319,108 @@
             </div>
             <div class="slide solution-slide">
                 <div class="slide-content"
-                    style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;">
-                    <div style="text-align: left;">
-                        <h3>Step-by-Step Solution</h3>
-                        <div class="step">
-                            <p><strong>Step 1: Analyze Conditions</strong> <br>
-                                1. Vertices: "Adjacent to 2 vertices" \(\to\) <strong>2-regular</strong>
-                                (\(\deg(v)=2\)).<br>
-                                2. Edges: "Adjacent to 2 edges" \(\to\) Each edge meets exactly 2 others.</p>
+                    style="display: flex; flex-direction: column; height: 75vh; max-width: 1000px; width: 90%; margin: 0 auto; padding: 2rem;">
+
+                    <!-- Content Area (Grid) -->
+                    <div
+                        style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; flex: 1; overflow: hidden; min-height: 0;">
+                        <!-- Left: Steps -->
+                        <div
+                            style="text-align: left; overflow-y: auto; padding-right: 1rem; position: relative; display: flex; flex-direction: column;">
+
+                            <!-- Progress Bar -->
+                            <div class="progress-bar">
+                                <div class="step-circle active" id="sc-p3-1">1</div>
+                                <div class="step-circle" id="sc-p3-2">2</div>
+                                <div class="step-circle" id="sc-p3-3">3</div>
+                                <div class="step-circle" id="sc-p3-4">4</div>
+                                <div class="step-circle" id="sc-p3-5">5</div>
+                                <div class="step-circle" id="sc-p3-6">6</div>
+                            </div>
+
+                            <h3>Step-by-Step Solution</h3>
+
+                            <!-- Step 1 -->
+                            <div class="p3-step" id="p3-step-1">
+                                <h4 style="color: var(--highlight);">Step 1: Understand Conditions</h4>
+                                <p><strong>Condition 1:</strong> "Every vertex adjacent to 2 vertices" <br>\(\implies\)
+                                    Graph is <strong>2-regular</strong> (\(\deg(v)=2\)).</p>
+                                <p><strong>Condition 2:</strong> "Every edge adjacent to 2 edges" <br>\(\implies\) Each
+                                    edge
+                                    shares endpoints with exactly 2 other edges.</p>
+                                <p class="status-box">We need to construct ONE example.</p>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="p3-step hidden" id="p3-step-2">
+                                <h4 style="color: var(--highlight);">Step 2: Propose Example</h4>
+                                <p>A natural 2-regular graph is a <strong>Cycle</strong>.</p>
+                                <p>Let's try a Cycle Graph \( C_4 \) (a Square) with 4 vertices.</p>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="p3-step hidden" id="p3-step-3">
+                                <h4 style="color: var(--highlight);">Step 3: Define Graph</h4>
+                                <p><strong>Vertices:</strong> \( v_1, v_2, v_3, v_4 \)</p>
+                                <p><strong>Edges:</strong> \( (v_1,v_2), (v_2,v_3), (v_3,v_4), (v_4,v_1) \)</p>
+                                <p class="status-box">This forms a closed loop.</p>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div class="p3-step hidden" id="p3-step-4">
+                                <h4 style="color: var(--highlight);">Step 4: Verify Condition 1 (Vertices)</h4>
+                                <ul>
+                                    <li>\(\deg(v_1)\): connected to \(v_2, v_4\) \(\to 2\)</li>
+                                    <li>\(\deg(v_2)\): connected to \(v_1, v_3\) \(\to 2\)</li>
+                                    <li>\(\deg(v_3)\): connected to \(v_2, v_4\) \(\to 2\)</li>
+                                    <li>\(\deg(v_4)\): connected to \(v_3, v_1\) \(\to 2\)</li>
+                                </ul>
+                                <p style="color: var(--success);">Condition 1 Satisfied ✅</p>
+                            </div>
+
+                            <!-- Step 5 -->
+                            <div class="p3-step hidden" id="p3-step-5">
+                                <h4 style="color: var(--highlight);">Step 5: Verify Condition 2 (Edges)</h4>
+                                <p>Take edge \( e = (v_1, v_2) \):</p>
+                                <ul>
+                                    <li>At \(v_1\), it touches \((v_4, v_1)\).</li>
+                                    <li>At \(v_2\), it touches \((v_2, v_3)\).</li>
+                                </ul>
+                                <p>Total adjacent edges = 2.</p>
+                                <p style="color: var(--success);">Condition 2 Satisfied ✅</p>
+                            </div>
+
+                            <!-- Step 6 -->
+                            <div class="p3-step hidden" id="p3-step-6">
+                                <h4 style="color: var(--success);">Step 6: Final Conclusion</h4>
+                                <p>The Cycle Graph \( C_4 \) satisfies both conditions.</p>
+                                <div class="highlight-box">
+                                    <p><strong>Teaching Note:</strong> Any cycle \( C_n \) with \( n \ge 3 \) works.</p>
+                                </div>
+                            </div>
+
                         </div>
-                        <div class="step">
-                            <p><strong>Step 2: Propose Example</strong> <br>
-                                A Cycle Graph \( C_4 \) (Square) with vertices \( v_1, v_2, v_3, v_4 \).</p>
-                        </div>
-                        <div class="step">
-                            <p><strong>Step 3: Verification</strong> <br>
-                                <span style="color:var(--success)">✅ Condition 1:</span> \(\deg(v_i)=2\) for all
-                                \(i\).<br>
-                                <span style="color:var(--success)">✅ Condition 2:</span> Edge \((v_1,v_2)\)
-                                touches
-                                \((v_4,v_1)\) at \(v_1\) and \((v_2,v_3)\) at \(v_2\). (Total 2).
-                            </p>
-                        </div>
-                        <div class="step">
-                            <p><strong>Conclusion:</strong> Any cycle \( C_n \) (\(n \ge 3\)) works.</p>
+
+                        <!-- Right: Graph -->
+                        <div>
+                            <div id="p3-graph"
+                                style="height: 300px; width: 100%; background: rgba(0,0,0,0.2); border-radius: 12px; border: 1px solid var(--glass-border);">
+                            </div>
+                            <p
+                                style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--accent-color); text-align: center;">
+                                Graph: Cycle \( C_4 \)</p>
                         </div>
                     </div>
-                    <div>
-                        <div id="p3-graph"
-                            style="height: 300px; width: 100%; background: rgba(0,0,0,0.2); border-radius: 12px; border: 1px solid var(--glass-border);">
+
+                    <!-- Footer -->
+                    <div
+                        style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center;">
+                        <button class="btn-secondary hidden" onclick="prevStepP3()" id="p3-back-btn">⬅ Back</button>
+                        <div style="margin-left: auto;">
+                            <button class="btn-primary" onclick="nextStepP3()" id="p3-next-btn">Next Step ➜</button>
+                            <button class="btn-secondary hidden" onclick="resetP3()" id="p3-reset-btn">Reset
+                                Solution</button>
                         </div>
-                        <p style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--accent-color);">
-                            Interactive Graph:
-                            Cycle \( C_4 \)</p>
                     </div>
                 </div>
                 <button class="nav-arrow arrow-left" onclick="navigateGrid(2, 0)" title="Back to Task"><svg
@@ -380,11 +449,101 @@
                     </svg></button>
             </div>
             <div class="slide solution-slide">
-                <div class="slide-content">
-                    <p>Every vertex connects to every other vertex.</p>
-                    <p>Degree of each vertex = \( n-1 = 4 \).</p>
-                    <p>Total Edges = \( \frac{n(n-1)}{2} = 10 \).</p>
+                <div class="slide-content"
+                    style="display: flex; flex-direction: column; height: 75vh; max-width: 1000px; width: 90%; margin: 0 auto; padding: 2rem;">
+
+                    <!-- Content Area (Grid) -->
+                    <div
+                        style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; flex: 1; overflow: hidden; min-height: 0;">
+                        <!-- Left: Steps -->
+                        <div
+                            style="text-align: left; overflow-y: auto; padding-right: 1rem; position: relative; display: flex; flex-direction: column;">
+
+                            <!-- Progress Bar -->
+                            <div class="progress-bar">
+                                <div class="step-circle active" id="sc-p5-1">1</div>
+                                <div class="step-circle" id="sc-p5-2">2</div>
+                                <div class="step-circle" id="sc-p5-3">3</div>
+                                <div class="step-circle" id="sc-p5-4">4</div>
+                                <div class="step-circle" id="sc-p5-5">5</div>
+                            </div>
+
+                            <h3>Step-by-Step Solution</h3>
+
+                            <!-- Step 1 -->
+                            <div class="p5-step" id="p5-step-1">
+                                <h4 style="color: var(--highlight);">Step 1: Understand "As Many As Possible"</h4>
+                                <p>To maximize edges in a simple graph (no loops/multi-edges):</p>
+                                <ul>
+                                    <li>Every pair of distinct vertices must be connected.</li>
+                                    <li>This makes it a <strong>Complete Graph</strong>.</li>
+                                </ul>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="p5-step hidden" id="p5-step-2">
+                                <h4 style="color: var(--highlight);">Step 2: Identify Graph Type</h4>
+                                <p>With 5 vertices where every vertex connects to every other vertex, it is denoted as:
+                                </p>
+                                <div class="math-block">$$ K_5 $$</div>
+                                <p class="status-box">"Complete graph on 5 vertices"</p>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="p5-step hidden" id="p5-step-3">
+                                <h4 style="color: var(--highlight);">Step 3: Count Edges</h4>
+                                <p>Formula for edges in \( K_n \):</p>
+                                <div class="math-block">$$ |E| = \frac{n(n-1)}{2} $$</div>
+                                <p>For \( n=5 \):</p>
+                                <div class="math-block">$$ \frac{5(4)}{2} = \frac{20}{2} = 10 $$</div>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div class="p5-step hidden" id="p5-step-4">
+                                <h4 style="color: var(--highlight);">Step 4: Describe Graph</h4>
+                                <p><strong>Vertices:</strong> \( v_1, \dots, v_5 \)</p>
+                                <p><strong>Degree:</strong> Every vertex has degree \( 4 \) (connected to the other 4).
+                                </p>
+                                <p><strong>Edges:</strong> All \(\binom{5}{2} = 10\) pairs.</p>
+                            </div>
+
+                            <!-- Step 5 -->
+                            <div class="p5-step hidden" id="p5-step-5">
+                                <h4 style="color: var(--success);">Step 5: Final Answer</h4>
+                                <p><strong>Max Edges:</strong> 10</p>
+                                <p><strong>Name:</strong> Complete Graph</p>
+                                <p><strong>Notation:</strong> \( K_5 \)</p>
+                                <div class="highlight-box">
+                                    <p><strong>Teaching Note:</strong> Drawing \( K_5 \) involves a pentagon with a
+                                        pentagram inside (star).</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Right: Graph -->
+                        <div>
+                            <div id="p5-graph"
+                                style="height: 300px; width: 100%; background: rgba(0,0,0,0.2); border-radius: 12px; border: 1px solid var(--glass-border);">
+                            </div>
+                            <p
+                                style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--accent-color); text-align: center;">
+                                Graph: \( K_5 \)</p>
+                        </div>
+                    </div>
+
+                    <!-- Footer -->
+                    <div
+                        style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center;">
+                        <button class="btn-secondary hidden" onclick="prevStepP5()" id="p5-back-btn">⬅ Back</button>
+                        <div style="margin-left: auto;">
+                            <button class="btn-primary" onclick="nextStepP5()" id="p5-next-btn">Next Step ➜</button>
+                            <button class="btn-secondary hidden" onclick="resetP5()" id="p5-reset-btn">Reset
+                                Solution</button>
+                        </div>
+                    </div>
                 </div>
+                <!-- Back Arrow out of slide content -->
                 <button class="nav-arrow arrow-left" onclick="navigateGrid(3, 0)"><svg viewBox="0 0 24 24">
                         <path d="M15 19l-7-7 7-7" />
                     </svg></button>
@@ -396,9 +555,15 @@
             <div class="slide">
                 <div class="slide-content">
                     <h3>Problem 12</h3>
-                    <p><strong>Bipartite Graphs:</strong> Determine if $C_6$ (Cycle graph of 6 vertices) is
-                        bipartite.
+                    <p style="font-size: 1.1em; line-height: 1.6;">
+                        Does there exist a graph \( G \) with <strong>28 edges</strong> and <strong>12
+                            vertices</strong>,
+                        each of degree:
                     </p>
+                    <ul style="font-size: 1.1em; margin-top: 1rem;">
+                        <li><strong>(a)</strong> 3 or 4?</li>
+                        <li><strong>(b)</strong> 3 or 6?</li>
+                    </ul>
                 </div>
                 <button class="nav-arrow arrow-right" onclick="navigateGrid(4, 1)" title="Solution"><svg
                         viewBox="0 0 24 24">
@@ -409,223 +574,569 @@
                     </svg></button>
             </div>
             <div class="slide solution-slide">
-                <div class="slide-content">
-                    <div class="highlight-box" style="border-color: var(--success);">
-                        <p><strong>Yes.</strong> \( C_n \) is bipartite if and only if \( n \) is even.</p>
+                <div class="slide-content"
+                    style="display: flex; flex-direction: column; height: 75vh; max-width: 1000px; width: 90%; margin: 0 auto; padding: 2rem;">
+
+                    <!-- Content Area (Grid) -->
+                    <div
+                        style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 2rem; flex: 1; overflow: hidden; min-height: 0;">
+                        <!-- Left: Steps -->
+                        <div
+                            style="text-align: left; overflow-y: auto; padding-right: 1rem; position: relative; display: flex; flex-direction: column;">
+
+                            <!-- Progress Bar -->
+                            <div class="progress-bar">
+                                <div class="step-circle active" id="sc-p12-1">1</div>
+                                <div class="step-circle" id="sc-p12-2">2</div>
+                                <div class="step-circle" id="sc-p12-3">3</div>
+                                <div class="step-circle" id="sc-p12-4">4</div>
+                                <div class="step-circle" id="sc-p12-5">5</div>
+                                <div class="step-circle" id="sc-p12-6">6</div>
+                            </div>
+
+                            <h3>Step-by-Step Solution</h3>
+
+                            <!-- Step 1 -->
+                            <div class="p12-step" id="p12-step-1">
+                                <h4 style="color: var(--highlight);">Step 1: Handshaking Lemma</h4>
+                                <p>For any graph:</p>
+                                <div class="math-block">$$ \sum \deg(v) = 2 \times |E| $$</div>
+                                <p>Given \( |E| = 28 \):</p>
+                                <div class="math-block">$$ \sum \deg(v) = 2 \times 28 = 56 $$</div>
+                                <p class="status-box">Total Degree Sum must be <strong>56</strong>.</p>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="p12-step hidden" id="p12-step-2">
+                                <h4 style="color: var(--highlight);">Step 2: Part (a) Setup</h4>
+                                <p>Lat \( x \) = vertices of degree 3, \( y \) = vertices of degree 4.</p>
+                                <p>Total vertices = 12:</p>
+                                <div class="math-block">$$ x + y = 12 \implies x = 12 - y $$</div>
+                                <p>Target Sum = 56:</p>
+                                <div class="math-block">$$ 3x + 4y = 56 $$</div>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="p12-step hidden" id="p12-step-3">
+                                <h4 style="color: var(--highlight);">Step 3: Part (a) Solve</h4>
+                                <p>Substitute \( x = 12 - y \):</p>
+                                <div class="math-block">
+                                    $$ 3(12 - y) + 4y = 56 $$<br>
+                                    $$ 36 - 3y + 4y = 56 $$<br>
+                                    $$ 36 + y = 56 $$<br>
+                                    $$ y = 20 $$
+                                </div>
+                                <p style="color: var(--error);">Impossible! We only have 12 vertices.</p>
+                                <p><strong>Conclusion (a):</strong> No such graph exists. ❌</p>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div class="p12-step hidden" id="p12-step-4">
+                                <h4 style="color: var(--highlight);">Step 4: Part (b) Setup</h4>
+                                <p>Degrees: 3 or 6. Let \( x \) (deg 3), \( y \) (deg 6).</p>
+                                <div class="math-block">$$ x + y = 12 $$</div>
+                                <div class="math-block">$$ 3x + 6y = 56 $$</div>
+                            </div>
+
+                            <!-- Step 5 -->
+                            <div class="p12-step hidden" id="p12-step-5">
+                                <h4 style="color: var(--highlight);">Step 5: Part (b) Solve</h4>
+                                <p>Substitute \( x = 12 - y \):</p>
+                                <div class="math-block">
+                                    $$ 3(12 - y) + 6y = 56 $$<br>
+                                    $$ 36 - 3y + 6y = 56 $$<br>
+                                    $$ 36 + 3y = 56 $$<br>
+                                    $$ 3y = 20 \implies y = 20/3 $$
+                                </div>
+                                <p style="color: var(--error);">Impossible! Vertex count must be integer.</p>
+                                <p><strong>Conclusion (b):</strong> No such graph exists. ❌</p>
+                            </div>
+
+                            <!-- Step 6 -->
+                            <div class="p12-step hidden" id="p12-step-6">
+                                <h4 style="color: var(--success);">Step 6: Final Answers</h4>
+                                <ul>
+                                    <li>(a) <strong>No</strong> (Degrees too high).</li>
+                                    <li>(b) <strong>No</strong> (Integer constraint violated).</li>
+                                </ul>
+                                <div class="highlight-box">
+                                    <p><strong>Teaching Note:</strong> Always check if valid integer solutions exist for
+                                        vertex counts.</p>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Right: Math Board -->
+                        <div>
+                            <div id="p12-board"
+                                style="height: 300px; width: 100%; background: linear-gradient(145deg, #1e1e2f, #2a2a40); border-radius: 12px; border: 4px solid #444; box-shadow: inset 0 0 20px rgba(0,0,0,0.5); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1rem; color: #fff; text-shadow: 0 1px 2px black;">
+                                <h4 style="margin: 0; color: var(--text-muted); font-size: 0.9rem;">Math Blackboard</h4>
+                                <div id="p12-equation-display"
+                                    style="font-size: 1.4rem; font-family: 'Courier New', monospace; text-align: center; margin-top: auto; margin-bottom: auto;">
+                                    Waiting for input...
+                                </div>
+                            </div>
+                            <p
+                                style="font-size: 0.8rem; margin-top: 0.5rem; color: var(--accent-color); text-align: center;">
+                                Equation Solver</p>
+                        </div>
                     </div>
-                    <p>Since \( n=6 \) is even, we can color vertices alternating Black/White.</p>
+
+                    <!-- Footer -->
+                    <div
+                        style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center;">
+                        <button class="btn-secondary hidden" onclick="prevStepP12()" id="p12-back-btn">⬅ Back</button>
+                        <div style="margin-left: auto;">
+                            <button class="btn-primary" onclick="nextStepP12()" id="p12-next-btn">Next Step ➜</button>
+                            <button class="btn-secondary hidden" onclick="resetP12()" id="p12-reset-btn">Reset
+                                Solution</button>
+                        </div>
+                    </div>
                 </div>
+                <!-- Back Arrow out of slide content -->
                 <button class="nav-arrow arrow-left" onclick="navigateGrid(4, 0)"><svg viewBox="0 0 24 24">
                         <path d="M15 19l-7-7 7-7" />
                     </svg></button>
             </div>
+
+            <!-- Problem 15 -->
+            <div class="row">
+                <div class="slide">
+                    <div class="slide-content">
+                        <h3>Problem 15</h3>
+                        <p>Find the degree sequence of the given graph.</p>
+                        <p><em>(Placeholder)</em></p>
+                    </div>
+                    <button class="nav-arrow arrow-right" onclick="navigateGrid(5, 1)"><svg viewBox="0 0 24 24">
+                            <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                        </svg></button>
+                    <button class="nav-arrow arrow-down" onclick="scrollToRow(6)"><svg viewBox="0 0 24 24">
+                            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                        </svg></button>
+                </div>
+                <div class="slide solution-slide">
+                    <div class="slide-content">
+                        <p>List degrees in non-increasing order: \( d_1, d_2, \dots d_n \).</p>
+                    </div>
+                    <button class="nav-arrow arrow-left" onclick="navigateGrid(5, 0)"><svg viewBox="0 0 24 24">
+                            <path d="M15 19l-7-7 7-7" />
+                        </svg></button>
+                </div>
+            </div>
+
+            <!-- Problem 17 -->
+            <div class="row">
+                <div class="slide">
+                    <div class="slide-content">
+                        <h3>Problem 17</h3>
+                        <p><strong>Hypercubes:</strong> Draw \( Q_3 \).</p>
+                    </div>
+                    <button class="nav-arrow arrow-right" onclick="navigateGrid(6, 1)"><svg viewBox="0 0 24 24">
+                            <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                        </svg></button>
+                    <button class="nav-arrow arrow-down" onclick="scrollToRow(7)"><svg viewBox="0 0 24 24">
+                            <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                        </svg></button>
+                </div>
+                <div class="slide solution-slide">
+                    <div class="slide-content">
+                        <p>\( Q_3 \) (3-Cube) has \( 2^3 = 8 \) vertices.</p>
+                        <p>Each vertex is a binary string of length 3 (000 to 111).</p>
+                        <p>Connect vertices that differ by exactly 1 bit.</p>
+                    </div>
+                    <button class="nav-arrow arrow-left" onclick="navigateGrid(6, 0)"><svg viewBox="0 0 24 24">
+                            <path d="M15 19l-7-7 7-7" />
+                        </svg></button>
+                </div>
+            </div>
+
+            <!-- Problem 18 -->
+            <div class="row">
+                <div class="slide">
+                    <div class="slide-content">
+                        <h3>Problem 18</h3>
+                        <p>Subgraphs problem.</p>
+                        <p><em>(Placeholder)</em></p>
+                    </div>
+                    <button class="nav-arrow arrow-right" onclick="navigateGrid(7, 1)"><svg viewBox="0 0 24 24">
+                            <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
+                        </svg></button>
+                </div>
+                <div class="slide solution-slide">
+                    <div class="slide-content">
+                        <p>Check if edges in \( H \) are subset of \( E(G) \) and vertices in \( H \) are subset of
+                            \( V(G)
+                            \).</p>
+                    </div>
+                    <button class="nav-arrow arrow-left" onclick="navigateGrid(7, 0)"><svg viewBox="0 0 24 24">
+                            <path d="M15 19l-7-7 7-7" />
+                        </svg></button>
+                </div>
+            </div>
+
         </div>
+        <script src="script.js"></script>
+        <script>
+            // --- Problem 1 Interactive Logic ---
+            let p1Step = 1;
+            const totalP1Steps = 6;
+            let p1Renderer = null;
 
-        <!-- Problem 15 -->
-        <div class="row">
-            <div class="slide">
-                <div class="slide-content">
-                    <h3>Problem 15</h3>
-                    <p>Find the degree sequence of the given graph.</p>
-                    <p><em>(Placeholder)</em></p>
-                </div>
-                <button class="nav-arrow arrow-right" onclick="navigateGrid(5, 1)"><svg viewBox="0 0 24 24">
-                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
-                    </svg></button>
-                <button class="nav-arrow arrow-down" onclick="scrollToRow(6)"><svg viewBox="0 0 24 24">
-                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-                    </svg></button>
-            </div>
-            <div class="slide solution-slide">
-                <div class="slide-content">
-                    <p>List degrees in non-increasing order: \( d_1, d_2, \dots d_n \).</p>
-                </div>
-                <button class="nav-arrow arrow-left" onclick="navigateGrid(5, 0)"><svg viewBox="0 0 24 24">
-                        <path d="M15 19l-7-7 7-7" />
-                    </svg></button>
-            </div>
-        </div>
+            // Vertices Data (Fixed Positions)
+            const p1Nodes = [
+                { id: 'v1', x: 200, y: 50 },
+                { id: 'v2', x: 50, y: 150 },
+                { id: 'v3', x: 150, y: 200 },
+                { id: 'v4', x: 300, y: 150 },
+                { id: 'v5', x: 250, y: 250 }
+            ];
 
-        <!-- Problem 17 -->
-        <div class="row">
-            <div class="slide">
-                <div class="slide-content">
-                    <h3>Problem 17</h3>
-                    <p><strong>Hypercubes:</strong> Draw \( Q_3 \).</p>
-                </div>
-                <button class="nav-arrow arrow-right" onclick="navigateGrid(6, 1)"><svg viewBox="0 0 24 24">
-                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
-                    </svg></button>
-                <button class="nav-arrow arrow-down" onclick="scrollToRow(7)"><svg viewBox="0 0 24 24">
-                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
-                    </svg></button>
-            </div>
-            <div class="slide solution-slide">
-                <div class="slide-content">
-                    <p>\( Q_3 \) (3-Cube) has \( 2^3 = 8 \) vertices.</p>
-                    <p>Each vertex is a binary string of length 3 (000 to 111).</p>
-                    <p>Connect vertices that differ by exactly 1 bit.</p>
-                </div>
-                <button class="nav-arrow arrow-left" onclick="navigateGrid(6, 0)"><svg viewBox="0 0 24 24">
-                        <path d="M15 19l-7-7 7-7" />
-                    </svg></button>
-            </div>
-        </div>
-
-        <!-- Problem 18 -->
-        <div class="row">
-            <div class="slide">
-                <div class="slide-content">
-                    <h3>Problem 18</h3>
-                    <p>Subgraphs problem.</p>
-                    <p><em>(Placeholder)</em></p>
-                </div>
-                <button class="nav-arrow arrow-right" onclick="navigateGrid(7, 1)"><svg viewBox="0 0 24 24">
-                        <path d="M13 7l5 5-5 5M6 7l5 5-5 5" />
-                    </svg></button>
-            </div>
-            <div class="slide solution-slide">
-                <div class="slide-content">
-                    <p>Check if edges in \( H \) are subset of \( E(G) \) and vertices in \( H \) are subset of
-                        \( V(G)
-                        \).</p>
-                </div>
-                <button class="nav-arrow arrow-left" onclick="navigateGrid(7, 0)"><svg viewBox="0 0 24 24">
-                        <path d="M15 19l-7-7 7-7" />
-                    </svg></button>
-            </div>
-        </div>
-
-    </div>
-    <script src="script.js"></script>
-    <script>
-        // --- Problem 1 Interactive Logic ---
-        let p1Step = 1;
-        const totalP1Steps = 6;
-        let p1Renderer = null;
-
-        // Vertices Data (Fixed Positions)
-        const p1Nodes = [
-            { id: 'v1', x: 200, y: 50 },
-            { id: 'v2', x: 50, y: 150 },
-            { id: 'v3', x: 150, y: 200 },
-            { id: 'v4', x: 300, y: 150 },
-            { id: 'v5', x: 250, y: 250 }
-        ];
-
-        // Edges for each step (Cumulative)
-        function getP1Edges(step) {
-            let edges = [];
-            if (step >= 2) edges.push({ source: 'v4', target: 'v5' }); // Step 2: (v4,v5)
-            if (step >= 3) { // Step 3: (v1,v2), (v1,v3), (v1,v4)
-                edges.push({ source: 'v1', target: 'v2' });
-                edges.push({ source: 'v1', target: 'v3' });
-                edges.push({ source: 'v1', target: 'v4' });
+            // Edges for each step (Cumulative)
+            function getP1Edges(step) {
+                let edges = [];
+                if (step >= 2) edges.push({ source: 'v4', target: 'v5' }); // Step 2: (v4,v5)
+                if (step >= 3) { // Step 3: (v1,v2), (v1,v3), (v1,v4)
+                    edges.push({ source: 'v1', target: 'v2' });
+                    edges.push({ source: 'v1', target: 'v3' });
+                    edges.push({ source: 'v1', target: 'v4' });
+                }
+                if (step >= 4) edges.push({ source: 'v3', target: 'v5' }); // Step 4: (v3,v5)
+                return edges;
             }
-            if (step >= 4) edges.push({ source: 'v3', target: 'v5' }); // Step 4: (v3,v5)
-            return edges;
-        }
 
-        // Centralized UI Update
-        function updateP1UI() {
-            // 1. Text Steps Visibility
-            document.querySelectorAll('.p1-step').forEach(el => el.classList.add('hidden'));
-            const currentStepEl = document.getElementById(`p1-step-${p1Step}`);
-            if (currentStepEl) currentStepEl.classList.remove('hidden');
+            // Centralized UI Update
+            function updateP1UI() {
+                // 1. Text Steps Visibility
+                document.querySelectorAll('.p1-step').forEach(el => el.classList.add('hidden'));
+                const currentStepEl = document.getElementById(`p1-step-${p1Step}`);
+                if (currentStepEl) currentStepEl.classList.remove('hidden');
 
-            // 2. Progress Bar
-            for (let i = 1; i <= totalP1Steps; i++) {
-                const c = document.getElementById(`sc-${i}`);
-                if (c) {
-                    c.classList.remove('active', 'completed');
-                    c.innerHTML = i; // Reset content
+                // 2. Progress Bar
+                for (let i = 1; i <= totalP1Steps; i++) {
+                    const c = document.getElementById(`sc-${i}`);
+                    if (c) {
+                        c.classList.remove('active', 'completed');
+                        c.innerHTML = i; // Reset content
 
-                    if (i < p1Step) {
-                        c.classList.add('completed');
-                        c.innerHTML = '✔';
-                    } else if (i === p1Step) {
-                        c.classList.add('active');
+                        if (i < p1Step) {
+                            c.classList.add('completed');
+                            c.innerHTML = '✔';
+                        } else if (i === p1Step) {
+                            c.classList.add('active');
+                        }
+                    }
+                }
+
+                // 3. Graph
+                if (p1Renderer) {
+                    p1Renderer.draw(p1Nodes, getP1Edges(p1Step), { nodeRadius: 18 });
+                }
+
+                // 4. Buttons State
+                const btnNext = document.getElementById('p1-next-btn');
+                const btnBack = document.getElementById('p1-back-btn');
+                const btnReset = document.getElementById('p1-reset-btn');
+
+                // Back Button
+                if (p1Step > 1) btnBack.classList.remove('hidden');
+                else btnBack.classList.add('hidden');
+
+                // Next / Reset Buttons
+                if (p1Step === totalP1Steps) {
+                    btnNext.classList.add('hidden');
+                    btnReset.classList.remove('hidden');
+                } else {
+                    btnNext.classList.remove('hidden');
+                    btnReset.classList.add('hidden');
+                }
+            }
+
+            window.nextStepP1 = function () {
+                if (p1Step < totalP1Steps) {
+                    p1Step++;
+                    updateP1UI();
+                }
+            };
+
+            window.prevStepP1 = function () {
+                if (p1Step > 1) {
+                    p1Step--;
+                    updateP1UI();
+                }
+            };
+
+            window.resetP1 = function () {
+                p1Step = 1;
+                updateP1UI();
+            };
+
+            // --- Problem 3 Interactive Logic ---
+            let p3Step = 1;
+            const totalP3Steps = 6;
+            let p3Renderer = null;
+
+            const p3Nodes = [
+                { id: 'v1', x: 100, y: 50 },
+                { id: 'v2', x: 300, y: 50 },
+                { id: 'v3', x: 300, y: 250 },
+                { id: 'v4', x: 100, y: 250 }
+            ];
+
+            function getP3Edges(step) {
+                // Edges appear from Step 3 onwards (when we define the graph)
+                if (step >= 3) {
+                    return [
+                        { source: 'v1', target: 'v2' },
+                        { source: 'v2', target: 'v3' },
+                        { source: 'v3', target: 'v4' },
+                        { source: 'v4', target: 'v1' }
+                    ];
+                }
+                return [];
+            }
+
+            function updateP3UI() {
+                // 1. Text Steps Visibility
+                document.querySelectorAll('.p3-step').forEach(el => el.classList.add('hidden'));
+                const s = document.getElementById(`p3-step-${p3Step}`);
+                if (s) s.classList.remove('hidden');
+
+                // 2. Progress Bar
+                for (let i = 1; i <= totalP3Steps; i++) {
+                    const c = document.getElementById(`sc-p3-${i}`);
+                    if (c) {
+                        c.classList.remove('active', 'completed');
+                        c.innerHTML = i;
+                        if (i < p3Step) { c.classList.add('completed'); c.innerHTML = '✔'; }
+                        else if (i === p3Step) { c.classList.add('active'); }
+                    }
+                }
+
+                // 3. Graph
+                if (p3Renderer) {
+                    // In Step 1 & 2, show NO graph? Or just nodes?
+                    // User text Step 3 says "Define Graph". Step 2 says "Propose Example".
+                    // Let's show nodes at Step 2. Empty at Step 1.
+                    let nodesToShow = [];
+                    let edgesToShow = [];
+
+                    if (p3Step >= 2) nodesToShow = p3Nodes;
+                    edgesToShow = getP3Edges(p3Step);
+
+                    p3Renderer.draw(nodesToShow, edgesToShow, { nodeRadius: 18 });
+                }
+
+                // 4. Buttons
+                const btnNext = document.getElementById('p3-next-btn');
+                const btnBack = document.getElementById('p3-back-btn');
+                const btnReset = document.getElementById('p3-reset-btn');
+
+                if (btnBack) {
+                    if (p3Step > 1) btnBack.classList.remove('hidden');
+                    else btnBack.classList.add('hidden');
+                }
+
+                if (btnNext && btnReset) {
+                    if (p3Step === totalP3Steps) {
+                        btnNext.classList.add('hidden');
+                        btnReset.classList.remove('hidden');
+                    } else {
+                        btnNext.classList.remove('hidden');
+                        btnReset.classList.add('hidden');
                     }
                 }
             }
 
-            // 3. Graph
-            if (p1Renderer) {
-                p1Renderer.draw(p1Nodes, getP1Edges(p1Step), { nodeRadius: 18 });
+            window.nextStepP3 = function () {
+                if (p3Step < totalP3Steps) { p3Step++; updateP3UI(); }
+            };
+            window.prevStepP3 = function () {
+                if (p3Step > 1) { p3Step--; updateP3UI(); }
+            };
+            window.resetP3 = function () {
+                p3Step = 1; updateP3UI();
+            };
+
+            // --- Problem 5 Interactive Logic ---
+            let p5Step = 1;
+            const totalP5Steps = 5;
+            let p5Renderer = null;
+
+            // Pentagonal Layout for K5
+            const p5Nodes = [];
+            for (let i = 0; i < 5; i++) {
+                // Center (200, 150), Radius ~100
+                const angle = (i * 2 * Math.PI / 5) - Math.PI / 2; // Start at top
+                p5Nodes.push({
+                    id: `v${i + 1}`,
+                    x: 200 + 100 * Math.cos(angle),
+                    y: 150 + 100 * Math.sin(angle)
+                });
             }
 
-            // 4. Buttons State
-            const btnNext = document.getElementById('p1-next-btn');
-            const btnBack = document.getElementById('p1-back-btn');
-            const btnReset = document.getElementById('p1-reset-btn');
-
-            // Back Button
-            if (p1Step > 1) btnBack.classList.remove('hidden');
-            else btnBack.classList.add('hidden');
-
-            // Next / Reset Buttons
-            if (p1Step === totalP1Steps) {
-                btnNext.classList.add('hidden');
-                btnReset.classList.remove('hidden');
-            } else {
-                btnNext.classList.remove('hidden');
-                btnReset.classList.add('hidden');
-            }
-        }
-
-        window.nextStepP1 = function () {
-            if (p1Step < totalP1Steps) {
-                p1Step++;
-                updateP1UI();
-            }
-        };
-
-        window.prevStepP1 = function () {
-            if (p1Step > 1) {
-                p1Step--;
-                updateP1UI();
-            }
-        };
-
-        window.resetP1 = function () {
-            p1Step = 1;
-            updateP1UI();
-        };
-
-        // Initialize Everything
-        window.addEventListener('load', () => {
-            console.log("Initializing Week 8 Graphics...");
-
-            // Init P1
-            if (window.GraphRenderer) {
-                p1Renderer = new GraphRenderer('p1-graph');
-                if (p1Renderer) {
-                    // Initial Draw (Step 1 - Just nodes)
-                    p1Renderer.draw(p1Nodes, [], { nodeRadius: 18 });
-                }
-
-                // Init P3 (Static)
-                const p3 = new GraphRenderer('p3-graph');
-                if (p3) {
-                    p3.draw(
-                        [
-                            { id: 'v1', x: 100, y: 100 },
-                            { id: 'v2', x: 250, y: 100 },
-                            { id: 'v3', x: 250, y: 250 },
-                            { id: 'v4', x: 100, y: 250 }
-                        ],
-                        [
-                            { source: 'v1', target: 'v2' },
-                            { source: 'v2', target: 'v3' },
-                            { source: 'v3', target: 'v4' },
-                            { source: 'v4', target: 'v1' }
-                        ],
-                        { nodeRadius: 18 }
-                    );
+            // Complete Graph Edges (All pairs)
+            const p5Edges = [];
+            for (let i = 0; i < 5; i++) {
+                for (let j = i + 1; j < 5; j++) {
+                    p5Edges.push({ source: `v${i + 1}`, target: `v${j + 1}` });
                 }
             }
-        });
-    </script>
+
+            function updateP5UI() {
+                // 1. Text Steps Visibility
+                document.querySelectorAll('.p5-step').forEach(el => el.classList.add('hidden'));
+                const s = document.getElementById(`p5-step-${p5Step}`);
+                if (s) s.classList.remove('hidden');
+
+                // 2. Progress Bar
+                for (let i = 1; i <= totalP5Steps; i++) {
+                    const c = document.getElementById(`sc-p5-${i}`);
+                    if (c) {
+                        c.classList.remove('active', 'completed');
+                        c.innerHTML = i;
+                        if (i < p5Step) { c.classList.add('completed'); c.innerHTML = '✔'; }
+                        else if (i === p5Step) { c.classList.add('active'); }
+                    }
+                }
+
+                // 3. Graph
+                if (p5Renderer) {
+                    // Show nodes always. Show edges gradually?
+                    // Step 1: Just nodes
+                    // Step 2,3: Just nodes (Concept)
+                    // Step 4: Show Edges (Description)
+                    let edgesToShow = [];
+                    if (p5Step >= 4) edgesToShow = p5Edges;
+
+                    p5Renderer.draw(p5Nodes, edgesToShow, { nodeRadius: 15 });
+                }
+
+                // 4. Buttons
+                const btnNext = document.getElementById('p5-next-btn');
+                const btnBack = document.getElementById('p5-back-btn');
+                const btnReset = document.getElementById('p5-reset-btn');
+
+                if (btnBack) {
+                    if (p5Step > 1) btnBack.classList.remove('hidden');
+                    else btnBack.classList.add('hidden');
+                }
+
+                if (btnNext && btnReset) {
+                    if (p5Step === totalP5Steps) {
+                        btnNext.classList.add('hidden');
+                        btnReset.classList.remove('hidden');
+                    } else {
+                        btnNext.classList.remove('hidden');
+                        btnReset.classList.add('hidden');
+                    }
+                }
+            }
+
+            window.nextStepP5 = function () {
+                if (p5Step < totalP5Steps) { p5Step++; updateP5UI(); }
+            };
+            window.prevStepP5 = function () {
+                if (p5Step > 1) { p5Step--; updateP5UI(); }
+            };
+            window.resetP5 = function () {
+                p5Step = 1; updateP5UI();
+            };
+
+            // --- Problem 12 Interactive Logic ---
+            let p12Step = 1;
+            const totalP12Steps = 6;
+
+            function updateP12UI() {
+                // 1. Text Steps Visibility
+                document.querySelectorAll('.p12-step').forEach(el => el.classList.add('hidden'));
+                const s = document.getElementById(`p12-step-${p12Step}`);
+                if (s) s.classList.remove('hidden');
+
+                // 2. Progress Bar
+                for (let i = 1; i <= totalP12Steps; i++) {
+                    const c = document.getElementById(`sc-p12-${i}`);
+                    if (c) {
+                        c.classList.remove('active', 'completed');
+                        c.innerHTML = i;
+                        if (i < p12Step) { c.classList.add('completed'); c.innerHTML = '✔'; }
+                        else if (i === p12Step) { c.classList.add('active'); }
+                    }
+                }
+
+                // 3. Math Board Update
+                const board = document.getElementById('p12-equation-display');
+                if (board) {
+                    let content = '';
+                    if (p12Step === 1) content = "Total Degrees = 56";
+                    else if (p12Step === 2) content = "x + y = 12<br>3x + 4y = 56";
+                    else if (p12Step === 3) content = "y = 20<br><span style='color:#ff4444'>Impossible (20 > 12)</span>";
+                    else if (p12Step === 4) content = "x + y = 12<br>3x + 6y = 56";
+                    else if (p12Step === 5) content = "y = 20/3<br><span style='color:#ff4444'>Not Integer</span>";
+                    else if (p12Step === 6) content = "(a) No<br>(b) No";
+
+                    board.innerHTML = content;
+                }
+
+                // 4. Buttons
+                const btnNext = document.getElementById('p12-next-btn');
+                const btnBack = document.getElementById('p12-back-btn');
+                const btnReset = document.getElementById('p12-reset-btn');
+
+                if (btnBack) {
+                    if (p12Step > 1) btnBack.classList.remove('hidden');
+                    else btnBack.classList.add('hidden');
+                }
+
+                if (btnNext && btnReset) {
+                    if (p12Step === totalP12Steps) {
+                        btnNext.classList.add('hidden');
+                        btnReset.classList.remove('hidden');
+                    } else {
+                        btnNext.classList.remove('hidden');
+                        btnReset.classList.add('hidden');
+                    }
+                }
+            }
+
+            window.nextStepP12 = function () {
+                if (p12Step < totalP12Steps) { p12Step++; updateP12UI(); }
+            };
+            window.prevStepP12 = function () {
+                if (p12Step > 1) { p12Step--; updateP12UI(); }
+            };
+            window.resetP12 = function () {
+                p12Step = 1; updateP12UI();
+            };
+
+            // Initialize Everything
+            window.addEventListener('load', () => {
+                console.log("Initializing Week 8 Graphics...");
+
+                if (window.GraphRenderer) {
+                    // Init P1
+                    p1Renderer = new GraphRenderer('p1-graph');
+                    if (p1Renderer) {
+                        p1Renderer.draw(p1Nodes, [], { nodeRadius: 18 });
+                    }
+
+                    // Init P3
+                    p3Renderer = new GraphRenderer('p3-graph');
+                    if (p3Renderer) {
+                        updateP3UI();
+                    }
+
+                    // Init P5
+                    p5Renderer = new GraphRenderer('p5-graph');
+                    if (p5Renderer) {
+                        updateP5UI();
+                    }
+
+                    // Init P12 (No Graph, just UI)
+                    updateP12UI();
+                }
+            });
+        </script>
 </body>
 
 </html>
