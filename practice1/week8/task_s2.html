@@ -733,132 +733,13 @@
             </div>
             <div class="slide solution-slide">
                 <div class="slide-content"
-                    style="display: flex; flex-direction: column; height: 75vh; max-width: 100000px; width: 70%; margin: 0 auto; padding: 2rem;">
-
-                    <!-- Content Area (Grid) -->
-                    <div
-                        style="display: grid; grid-template-columns: 1fr; gap: 2rem; flex: 1; overflow: hidden; min-height: 0;">
-                        <!-- Left: Steps -->
-                        <div
-                            style="text-align: left; overflow-y: auto; padding-right: 1rem; position: relative; display: flex; flex-direction: column;">
-
-                            <!-- Progress Bar -->
-                            <div class="progress-bar">
-                                <div class="step-circle active" id="sc-p15-1">1</div>
-                                <div class="step-circle" id="sc-p15-2">2</div>
-                                <div class="step-circle" id="sc-p15-3">3</div>
-                                <div class="step-circle" id="sc-p15-4">4</div>
-                                <div class="step-circle" id="sc-p15-5">5</div>
-                                <div class="step-circle" id="sc-p15-6">6</div>
-                                <div class="step-circle" id="sc-p15-7">7</div>
-                            </div>
-
-                            <h3>Step-by-Step Solution</h3>
-
-                            <!-- Step 1 -->
-                            <div class="p15-step" id="p15-step-1">
-                                <h4 style="color: var(--highlight);">Step 1: Definition</h4>
-                                <p>A graph \( H \) is a <strong>subgraph</strong> of \( G \) if:</p>
-                                <ul>
-                                    <li>Every vertex of \( H \) corresponds to a vertex in \( G \).</li>
-                                    <li>Every edge of \( H \) exists in \( G \) between these vertices.</li>
-                                </ul>
-                            </div>
-
-                            <!-- Step 2 -->
-                            <div class="p15-step hidden" id="p15-step-2">
-                                <h4 style="color: var(--highlight);">Step 2: Case (a)</h4>
-                                <p><strong>Left:</strong> A 4-cycle (Square). 4 vertices, degree 2, closed loop.</p>
-                                <p><strong>Right:</strong> Graph containing only triangles (3-cycles).</p>
-                                <p><strong>Result:</strong> A subgraph must preserve edges. The right graph has no set
-                                    of 4 vertices forming a square.</p>
-                                <p style="color: var(--error);">❌ No, not a subgraph.</p>
-                            </div>
-
-                            <!-- Step 3 -->
-                            <div class="p15-step hidden" id="p15-step-3">
-                                <h4 style="color: var(--highlight);">Step 3: Case (b)</h4>
-                                <p><strong>Left:</strong> Square with one diagonal (4-cycle + 1 chord).</p>
-                                <p><strong>Right:</strong> Graph with overlapping "M" shapes.</p>
-                                <p><strong>Result:</strong> Although edges cross, there is no set of 4 vertices that
-                                    form a square with exactly one diagonal.</p>
-                                <p style="color: var(--error);">❌ No, not a subgraph.</p>
-                            </div>
-
-                            <!-- Step 4 -->
-                            <div class="p15-step hidden" id="p15-step-4">
-                                <h4 style="color: var(--highlight);">Step 4: Case (c)</h4>
-                                <p><strong>Left:</strong> 5 vertices, "M-like" crossed structure.</p>
-                                <p><strong>Right:</strong> Symmetric oval graph with crossing diagonals.</p>
-                                <p><strong>Result:</strong> By choosing the top, bottom, and side vertices correctly, we
-                                    can reproduce the exact crossing pattern.</p>
-                                <p style="color: var(--success);">✅ Yes, it is a subgraph.</p>
-                            </div>
-
-                            <!-- Step 5 -->
-                            <div class="p15-step hidden" id="p15-step-5">
-                                <h4 style="color: var(--highlight);">Step 5: Case (d)</h4>
-                                <p><strong>Left:</strong> 6 vertices, "W-shaped" path + vertical edges.</p>
-                                <p><strong>Right:</strong> Dense central graph (Wheel-like).</p>
-                                <p><strong>Result:</strong> The specific "W" connection pattern of the left graph does
-                                    not appear verbatim inside the right graph due to the central vertex constraints.
-                                </p>
-                                <p style="color: var(--error);">❌ No, not a subgraph.</p>
-                            </div>
-
-                            <!-- Step 6 -->
-                            <div class="p15-step hidden" id="p15-step-6">
-                                <h4 style="color: var(--success);">Step 6: Summary</h4>
-                                <table style="width: 100%; border-collapse: collapse; margin-top: 1rem;">
-                                    <tr style="border-bottom: 1px solid var(--text-muted);">
-                                        <th style="padding: 0.5rem; text-align: left;">Case</th>
-                                        <th style="padding: 0.5rem; text-align: left;">Subgraph?</th>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 0.5rem;">(a) Square</td>
-                                        <td style="color: var(--error);">No</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 0.5rem;">(b) Square+Diag</td>
-                                        <td style="color: var(--error);">No</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 0.5rem;">(c) M-shape</td>
-                                        <td style="color: var(--success);">Yes</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 0.5rem;">(d) W-shape</td>
-                                        <td style="color: var(--error);">No</td>
-                                    </tr>
-                                </table>
-                            </div>
-
-                            <!-- Step 7 -->
-                            <div class="p15-step hidden" id="p15-step-7">
-                                <h4 style="color: var(--highlight);">Teaching Tips</h4>
-                                <p>1. Ignore size difference; focus on finding the <em>pattern</em> inside.</p>
-                                <p>2. Match <strong>degrees</strong> first.</p>
-                                <p>3. If any edge is missing in the target, it fails.</p>
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Footer -->
-                    <div
-                        style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center;">
-                        <button class="btn-secondary hidden" onclick="prevStepP15()" id="p15-back-btn">⬅
-                            Back</button>
-                        <div style="margin-left: auto;">
-                            <button class="btn-primary" onclick="nextStepP15()" id="p15-next-btn">Next Step
-                                ➜</button>
-                            <button class="btn-secondary hidden" onclick="resetP15()" id="p15-reset-btn">Reset
-                                Solution</button>
-                        </div>
-                    </div>
+                    style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 75vh; max-width: 100000px; width: 70%; margin: 0 auto; padding: 2rem; text-align: center;">
+                    <h2 style="font-size: 3rem; color: var(--highlight);">Ask the teacher</h2>
+                    <p style="font-size: 1.2rem; margin-top: 1rem; color: var(--text-muted);">This solution is best
+                        discussed in class.</p>
                 </div>
-                <!-- Back Arrow out of slide content -->
-                <button class="nav-arrow arrow-left" onclick="navigateGrid(5, 0)"><svg viewBox="0 0 24 24">
+                <!-- Back Button to Task Slide -->
+                <button class="nav-arrow arrow-left" onclick="navigateGrid(6, 0)"><svg viewBox="0 0 24 24">
                         <path d="M15 19l-7-7 7-7" />
                     </svg></button>
             </div>
